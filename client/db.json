@@ -1,8 +1,31 @@
 {
-  "people": [],
+  "people": [
+    {
+      "id": "8b62fbdb-a8a5-452f-ac06-f08076b671b4",
+      "name": "Isaac",
+      "role": "",
+      "companyId": "",
+      "link": "",
+      "notes": "Mik's friend 708-220-7614\nNeed to get his linkedin and last name",
+      "dateAdded": "2026-01-22T18:39:32.479Z"
+    }
+  ],
   "companies": [],
   "activities": [],
-  "documents": [],
+  "documents": [
+    {
+      "id": "917d95a5-087b-4854-81d0-54d3dc1e3aec",
+      "name": "JOSH.DEV",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/demberry.com/"
+    },
+    {
+      "id": "8a9fe3c6-8891-4bca-8473-9d4376cdbc10",
+      "name": "CheatSheet Fullstack Live",
+      "type": "Portfolio",
+      "link": "https://cheatsheet-static.onrender.com/login"
+    }
+  ],
   "resources": [],
   "values": []
 }
