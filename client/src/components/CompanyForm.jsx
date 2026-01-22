@@ -26,7 +26,7 @@ export function CompanyForm({ onClose, initialData = null }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay">
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{isEditing ? "Edit Company" : "Add Company"}</h2>
@@ -54,6 +54,7 @@ export function CompanyForm({ onClose, initialData = null }) {
                 <option value="dream">Dream (★)</option>
                 <option value="meh">Meh (○)</option>
                 <option value="blacklist">Blacklist (✕)</option>
+                <option value="reference">Reference (-)</option>
               </select>
             </div>
             <div className="form-group">

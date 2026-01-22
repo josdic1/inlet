@@ -1,107 +1,173 @@
 # Inlet
 
-**The Job Hunt CRM that keeps you sane.**
+**Your job search command center.**
 
-![Dashboard Preview](screenshot4.png)
+A clean, focused web app for tracking every touchpoint in your job search — from cold outreach to final offers. Built for people who want to stay organized without drowning in spreadsheets.
 
-## 🌊 What is Inlet?
-
-**Inlet** is a local-first Personal Relationship Manager (PRM) designed specifically for the modern job search.
-
-Standard spreadsheets are messy, and generic CRMs are too bloated. Inlet sits in the sweet spot: it tracks your **outreach**, manages your **network**, and—most importantly—filters every opportunity through your personal **Values**.
-
-It is built to run locally on your machine, giving you complete ownership of your data with zero latency.
+![Inlet Activity View](screenshot5.png)
 
 ---
 
-## 🚀 Key Features
+## The Problem
 
-### 1. Activity Feed & Pipeline
+Job searching is chaos. You're juggling LinkedIn messages, cold emails, applications, networking events, and follow-ups across dozens of companies. Most people use sprawling spreadsheets that become unmanageable within weeks.
 
-Stop wondering _"Did I follow up with Sarah?"_. The Activity Feed treats your job hunt like a sales pipeline.
+## The Solution
 
-- **Track Everything:** Log applications, cold outreach, networking calls, and content creation.
-- **Status Tracking:** Mark threads as `Active`, `Waiting`, or `Closed`.
-- **Quick Add:** Rapidly log new tasks without breaking your flow.
+Inlet gives you one place to log everything with minimal friction:
 
-### 2. Values-Driven Filtering
-
-Most job trackers only care about _getting_ the job. Inlet helps you decide if you _want_ it.
-
-- Define your **Must Haves** (e.g., Remote, Equity).
-- Define your **Deal Breakers** (e.g., No open floor plans).
-- Evaluate companies against this "North Star" before applying.
-
-![Values Screen](screenshot.png)
-
-### 3. Network & Documents
-
-- **People:** Link contacts to specific companies and track interaction history.
-- **Documents:** Manage versions of your Resumes, Cover Letters, and Portfolios in one place.
+- **Quick Add** — Log any activity in seconds with type, note, company, and link
+- **Touch System** — When someone responds, hit "touch" to bump that thread to the top and track the conversation
+- **Active Threads** — See exactly what's in motion and needs your attention
+- **Filter Views** — Slice your activity by type (outreach, application, networking, content) or status (open, active, closed)
 
 ---
 
-## 🛠 Tech Stack
+## Features
 
-- **Frontend:** React + Vite
-- **Backend:** JSON-Server (Local REST API)
-- **Process Management:** PM2 (Keeps client + server alive in background)
-- **Styling:** CSS Modules / Styled Components
-- **Icons:** Lucide React
+### Activity Feed
+
+The heart of the app. Every action you take lives here with timestamps, categorization, and full history.
+
+![Activity Feed](screenshot5.png)
+
+### Quick Add Modal
+
+Friction-free logging. Select type, write what you did, optionally link a company — done.
+
+![Quick Add](screenshot4.png)
+
+### People & Companies
+
+Track your network and target companies. See related activities at a glance.
+
+![People View](screenshot1.png)
+
+### Documents
+
+Your resumes, cover letters, and portfolio links. One-click copy, open, or email.
+
+![Documents](screenshot2.png)
+
+### Values
+
+Your non-negotiables and deal breakers. Reference these when evaluating opportunities.
+
+![Values](screenshot.png)
 
 ---
 
-## ⚡️ Quick Start
+## Tech Stack
 
-This project uses **PM2** to manage the frontend and backend simultaneously in the background.
+| Layer    | Technology                                             |
+| -------- | ------------------------------------------------------ |
+| Frontend | React 18, React Router, Vite                           |
+| State    | Context API with custom hooks                          |
+| Styling  | Pure CSS (no frameworks)                               |
+| Backend  | JSON Server (development) / Express (production-ready) |
+| Icons    | Lucide React                                           |
 
-### 1. Installation
+---
+
+## Architecture
+
+```
+client/src/
+├── components/       # Reusable UI components
+│   ├── ActivityCard.jsx
+│   ├── QuickAddModal.jsx
+│   ├── TouchModal.jsx
+│   ├── ActiveBanner.jsx
+│   └── NavBar.jsx
+├── pages/            # Route-level components
+│   ├── ActivityPage.jsx
+│   ├── CompaniesPage.jsx
+│   ├── PeoplePage.jsx
+│   ├── DocumentsPage.jsx
+│   ├── ValuesPage.jsx
+│   └── ResourcesPage.jsx
+├── contexts/         # React Context definitions
+├── providers/        # Context providers with business logic
+├── hooks/            # Custom hooks (useAuth, useData)
+└── index.css         # All styles in one file
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
-git clone https://github.com/josdic1/inlet.git
-cd inlet/client
-npm install
+# Clone the repo
+git clone https://github.com/yourusername/inlet.git
+cd inlet
+
+# Install dependencies
+cd client && npm install
+
+# Start the development server
+npm run dev
 ```
 
-### 2. Start the App
-
-We have a custom shortcut that spins up the Database (Port 3000) and the Client (Port 5175) and daemonizes them.
+### Running with Backend
 
 ```bash
-npm run pm2:start
-```
-
-_The app will now be running at [http://localhost:5175](http://localhost:5175)_.
-
-### 3. Managing the Server
-
-Since the app runs in the background, use these commands to control it:
-
-| Command              | Description                                  |
-| :------------------- | :------------------------------------------- |
-| `npm run pm2:list`   | Check status of Client and DB                |
-| `npm run pm2:stop`   | Pause the server (save state)                |
-| `npm run pm2:delete` | Kill processes completely                    |
-| `npm run db:reset`   | **⚠️ Wipe Data:** Resets DB to default state |
-
----
-
-## 📂 Project Structure
-
-```text
-inlet/
-├── client/              # React Application
-│   ├── src/
-│   │   ├── components/  # Reusable UI cards & forms
-│   │   ├── pages/       # Main route views
-│   │   ├── providers/   # Auth & Context logic
-│   │   └── scripts/     # Node maintenance scripts
-│   └── package.json     # Scripts & Dependencies
-│
-├── db.json              # Your Local Database (Do not delete)
-└── README.md            # You are here
+# In a separate terminal, start JSON Server
+cd server
+npx json-server --watch db.json --port 3000
 ```
 
 ---
 
-_Built by [Josh Dicker](https://github.com/josdic1)_
+## Data Model
+
+```javascript
+{
+  activities: [{
+    id, type, note, link,
+    personId, companyId, documentIds,
+    status, created, touches: [{ date, note }]
+  }],
+  people: [{ id, name, role, companyId, link, notes }],
+  companies: [{ id, name, tier, link, notes }],
+  documents: [{ id, name, link, type }],
+  values: [{ id, text, type }],  // type: "good" | "bad"
+  resources: [{ id, name, link, lastEngaged, notes }]
+}
+```
+
+---
+
+## Key Patterns
+
+**Context-Based State Management**
+All data flows through a single AuthProvider that handles fetching, caching, and CRUD operations. Components consume via `useAuth()` hook.
+
+**URL-Driven Filters**
+Activity filters sync to URL params (`/?type=outreach&status=active`), making views shareable and bookmarkable.
+
+**Touch Mechanic**
+When someone responds to your outreach, the "touch" action:
+
+1. Adds a timestamped note to the activity
+2. Changes status to "active"
+3. Bumps the item to the top of the feed
+
+---
+
+## License
+
+MIT
+
+---
+
+<p align="center">
+  <strong>Built by <a href="https://plaintalktech.com">Plain Talk Tech</a></strong><br>
+  <em>Practical tools explained in plain English</em>
+</p>

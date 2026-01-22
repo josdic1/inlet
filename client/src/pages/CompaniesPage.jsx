@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Edit2, Globe, Star, Circle, X } from "lucide-react";
+import { Plus, Edit2, Globe, Star, Circle, X, Archive } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { CompanyForm } from "../components/CompanyForm";
 
@@ -23,6 +23,7 @@ export function CompaniesPage() {
     dream: { Icon: Star, label: "Dream" },
     meh: { Icon: Circle, label: "Meh" },
     blacklist: { Icon: X, label: "Blacklist" },
+    reference: { label: "Reference", Icon: Archive, color: "#94a3b8" }
   };
 
   return (
