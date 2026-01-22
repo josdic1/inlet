@@ -4,7 +4,9 @@
 
 A clean, focused web app for tracking every touchpoint in your job search — from cold outreach to final offers. Built for people who want to stay organized without drowning in spreadsheets.
 
-![Inlet Activity View](screenshot5.png)
+<p align="center">
+  <img src="screenshot4.png" alt="Inlet Activity View" width="100%">
+</p>
 
 ---
 
@@ -25,47 +27,74 @@ Inlet gives you one place to log everything with minimal friction:
 
 ## Features
 
-### Activity Feed
+<table>
+<tr>
+<td width="50%">
 
+### Activity Feed
 The heart of the app. Every action you take lives here with timestamps, categorization, and full history.
 
-![Activity Feed](screenshot5.png)
+</td>
+<td width="50%">
 
 ### Quick Add Modal
-
 Friction-free logging. Select type, write what you did, optionally link a company — done.
 
-![Quick Add](screenshot4.png)
+</td>
+</tr>
+<tr>
+<td>
+<img src="screenshot4.png" alt="Activity Feed">
+</td>
+<td>
+<img src="screenshot3.png" alt="Quick Add">
+</td>
+</tr>
+</table>
 
-### People & Companies
+<table>
+<tr>
+<td width="50%">
 
-Track your network and target companies. See related activities at a glance.
+### People
+Track your network and contacts. See related activities at a glance.
 
-![People View](screenshot1.png)
+</td>
+<td width="50%">
 
 ### Documents
-
 Your resumes, cover letters, and portfolio links. One-click copy, open, or email.
 
-![Documents](screenshot2.png)
+</td>
+</tr>
+<tr>
+<td>
+<img src="screenshot1.png" alt="People View">
+</td>
+<td>
+<img src="screenshot2.png" alt="Documents">
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <img src="screenshot.png" alt="Values View" width="100%">
+</p>
 
 ### Values
-
 Your non-negotiables and deal breakers. Reference these when evaluating opportunities.
-
-![Values](screenshot.png)
 
 ---
 
 ## Tech Stack
 
-| Layer    | Technology                                             |
-| -------- | ------------------------------------------------------ |
-| Frontend | React 18, React Router, Vite                           |
-| State    | Context API with custom hooks                          |
-| Styling  | Pure CSS (no frameworks)                               |
-| Backend  | JSON Server (development) / Express (production-ready) |
-| Icons    | Lucide React                                           |
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 18, React Router, Vite |
+| State | Context API with custom hooks |
+| Styling | Pure CSS (no frameworks) |
+| Backend | JSON Server (development) / Express (production-ready) |
+| Icons | Lucide React |
 
 ---
 
@@ -97,7 +126,6 @@ client/src/
 ## Getting Started
 
 ### Prerequisites
-
 - Node.js 18+
 - npm or yarn
 
@@ -154,7 +182,6 @@ Activity filters sync to URL params (`/?type=outreach&status=active`), making vi
 
 **Touch Mechanic**
 When someone responds to your outreach, the "touch" action:
-
 1. Adds a timestamped note to the activity
 2. Changes status to "active"
 3. Bumps the item to the top of the feed
