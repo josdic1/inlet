@@ -195,6 +195,6 @@ MIT
 ---
 
 <p align="center">
-  <strong>Built by <a href="https://www.linkedin.com/in/joshdicker/">Josh Dicker</a></strong><br>
-  <em>LinkedIn</em>
+  <strong>Built by <a href="https://josdic1.github.io/demberry.com/">Josh Dicker</a></strong><br> h
+  <em>Click 👆 to see more of my apps!</em>
 </p>
