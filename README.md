@@ -195,6 +195,6 @@ MIT
 ---
 
 <p align="center">
-  <strong>Built by <a href="https://plaintalktech.com">Plain Talk Tech</a></strong><br>
-  <em>Practical tools explained in plain English</em>
+  <strong>Built by <a href="https://www.linkedin.com/in/joshdicker/">Josh Dicker</a></strong><br>
+  <em>LinkedIn</em>
 </p>
