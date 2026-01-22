@@ -4,13 +4,13 @@ import { useAuth } from "../hooks/useAuth";
 
 export function QuickAddModal({ onClose }) {
   const { addActivity, data } = useAuth();
-  
+
   const [formData, setFormData] = useState({
     type: "outreach",
     note: "",
     link: "",
     companyId: "",
-    personId: ""
+    personId: "",
   });
 
   // Only close when clicking the actual overlay background
@@ -25,20 +25,40 @@ export function QuickAddModal({ onClose }) {
     e.preventDefault();
     addActivity({
       ...formData,
-      status: "open"
+      status: "open",
     });
     onClose();
   };
 
   const types = [
-    { id: "outreach", label: "Outreach", Icon: Mail, color: "var(--color-outreach)" },
-    { id: "application", label: "Application", Icon: Briefcase, color: "var(--color-application)" },
-    { id: "networking", label: "Networking", Icon: Users, color: "var(--color-networking)" },
-    { id: "content", label: "Content", Icon: PenTool, color: "var(--color-content)" },
+    {
+      id: "outreach",
+      label: "Outreach",
+      Icon: Mail,
+      color: "var(--color-outreach)",
+    },
+    {
+      id: "application",
+      label: "Application",
+      Icon: Briefcase,
+      color: "var(--color-application)",
+    },
+    {
+      id: "networking",
+      label: "Networking",
+      Icon: Users,
+      color: "var(--color-networking)",
+    },
+    {
+      id: "content",
+      label: "Content",
+      Icon: PenTool,
+      color: "var(--color-content)",
+    },
   ];
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className="modal-overlay" onMouseDown={handleOverlayClick}>
       <div className="modal">
         <div className="modal-header">
           <div>
@@ -52,7 +72,6 @@ export function QuickAddModal({ onClose }) {
 
         <form onSubmit={handleSubmit}>
           <div className="modal-body">
-            
             {/* Type Selector */}
             <div className="form-group">
               <label className="form-label">Activity Type</label>
@@ -63,7 +82,15 @@ export function QuickAddModal({ onClose }) {
                     type="button"
                     onClick={() => setFormData({ ...formData, type: id })}
                     className={`form-type-btn ${formData.type === id ? "form-type-btn-active" : ""}`}
-                    style={formData.type === id ? { borderColor: color, color: color, backgroundColor: `${color}10` } : {}}
+                    style={
+                      formData.type === id
+                        ? {
+                            borderColor: color,
+                            color: color,
+                            backgroundColor: `${color}10`,
+                          }
+                        : {}
+                    }
                   >
                     <Icon size={16} style={{ marginBottom: 4 }} />
                     <div style={{ fontSize: 11 }}>{label}</div>
@@ -82,7 +109,9 @@ export function QuickAddModal({ onClose }) {
                 rows="3"
                 placeholder="E.g. Sent cold email to Sarah regarding Senior Dev role..."
                 value={formData.note}
-                onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, note: e.target.value })
+                }
               />
             </div>
 
@@ -92,11 +121,15 @@ export function QuickAddModal({ onClose }) {
               <select
                 className="form-select"
                 value={formData.companyId}
-                onChange={(e) => setFormData({ ...formData, companyId: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, companyId: e.target.value })
+                }
               >
                 <option value="">-- Select Company --</option>
                 {data.companies.map((c) => (
-                  <option key={c.id} value={c.id}>{c.name}</option>
+                  <option key={c.id} value={c.id}>
+                    {c.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -109,15 +142,24 @@ export function QuickAddModal({ onClose }) {
                 className="form-input"
                 placeholder="https://..."
                 value={formData.link}
-                onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, link: e.target.value })
+                }
               />
             </div>
-
           </div>
 
           <div className="modal-footer">
-            <button type="button" onClick={onClose} className="btn btn-secondary">Cancel</button>
-            <button type="submit" className="btn btn-primary">Log Activity</button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-secondary"
+            >
+              Cancel
+            </button>
+            <button type="submit" className="btn btn-primary">
+              Log Activity
+            </button>
           </div>
         </form>
       </div>

@@ -13,7 +13,8 @@
     "pm2:stop": "pm2 stop all",
     "pm2:delete": "pm2 delete all",
     "pm2:list": "pm2 list",
-    "db:reset": "node scripts/reset-db.js"
+    "db:reset": "node scripts/reset-db.js",
+    "backup": "node -e \"const fs=require('fs');const d=new Date();const p=s=>String(s).padStart(2,'0');const name=p(d.getFullYear()%100)+p(d.getMonth()+1)+p(d.getDate())+'_'+p(d.getHours())+p(d.getMinutes())+p(d.getSeconds());fs.copyFileSync('db.json','src/documents/'+name+'.json');console.log('Saved: src/documents/'+name+'.json')\""
   },
   "dependencies": {
     "lucide-react": "^0.562.0",

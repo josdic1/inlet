@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Plus, Edit2, Copy, Check, ExternalLink, Mail, FileText } from "lucide-react";
+import {
+  Plus,
+  Edit2,
+  Copy,
+  Check,
+  ExternalLink,
+  Mail,
+  FileText,
+} from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { DocumentForm } from "../components/DocumentForm";
 
@@ -9,17 +17,17 @@ export function DocumentsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-const handleOpenAdd = (e) => {
-  e.stopPropagation();
-  setEditingItem(null);
-  setIsFormOpen(true);
-};
+  const handleOpenAdd = (e) => {
+    e.stopPropagation();
+    setEditingItem(null);
+    setIsFormOpen(true);
+  };
 
-const handleOpenEdit = (e, doc) => {
-  e.stopPropagation();
-  setEditingItem(doc);
-  setIsFormOpen(true);
-};
+  const handleOpenEdit = (e, doc) => {
+    e.stopPropagation();
+    setEditingItem(doc);
+    setIsFormOpen(true);
+  };
 
   const copyToClipboard = (text, id) => {
     navigator.clipboard.writeText(text);
@@ -32,9 +40,14 @@ const handleOpenEdit = (e, doc) => {
       <div className="page-header">
         <div>
           <h1 className="page-title">Documents</h1>
-          <p className="page-subtitle">Your resumes, cover letters, and portfolio</p>
+          <p className="page-subtitle">
+            Your resumes, cover letters, and portfolio
+          </p>
         </div>
-        <button onClick={handleOpenAdd} className="btn btn-primary btn-with-icon">
+        <button
+          onClick={handleOpenAdd}
+          className="btn btn-primary btn-with-icon"
+        >
           <Plus size={20} />
           Add Document
         </button>
@@ -43,7 +56,7 @@ const handleOpenEdit = (e, doc) => {
       <div className="document-list">
         {data.documents.map((doc) => {
           const sentTo = data.activities
-            .filter((a) => a.documentIds.includes(doc.id))
+            .filter((a) => a.documentIds?.includes(doc.id))
             .map((a) => ({
               activity: a,
               person: a.personId ? getPerson(a.personId) : null,
@@ -57,10 +70,19 @@ const handleOpenEdit = (e, doc) => {
                   <FileText size={24} />
                 </div>
                 <div className="document-card-info">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
                     <h3>{doc.name}</h3>
-                    <button onClick={(e) => handleOpenEdit(e, doc)} className="btn-icon" title="Edit">
-                    </button>
+                    <button
+                      onClick={(e) => handleOpenEdit(e, doc)}
+                      className="btn-icon"
+                      title="Edit"
+                    ></button>
                   </div>
                   <p>{doc.type}</p>
                 </div>
@@ -70,19 +92,33 @@ const handleOpenEdit = (e, doc) => {
                     className={`btn-icon ${copiedId === doc.id ? "btn-icon-success" : ""}`}
                     title="Copy link"
                   >
-                    {copiedId === doc.id ? <Check size={18} /> : <Copy size={18} />}
+                    {copiedId === doc.id ? (
+                      <Check size={18} />
+                    ) : (
+                      <Copy size={18} />
+                    )}
                   </button>
-                  
-                  <a href={doc.link} target="_blank" rel="noopener noreferrer" className="btn-icon" title="Open">
+
+                  <a
+                    href={doc.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-icon"
+                    title="Open"
+                  >
                     <ExternalLink size={18} />
                   </a>
-                  
-                  <a href={`mailto:?subject=&body=Here's my ${doc.type}: ${doc.link}`} className="btn-icon btn-icon-email" title="Email">
+
+                  <a
+                    href={`mailto:?subject=&body=Here's my ${doc.type}: ${doc.link}`}
+                    className="btn-icon btn-icon-email"
+                    title="Email"
+                  >
                     <Mail size={18} />
                   </a>
                 </div>
               </div>
-              
+
               {sentTo.length > 0 && (
                 <div className="document-card-history">
                   <p className="document-card-history-label">Sent to:</p>
@@ -90,7 +126,9 @@ const handleOpenEdit = (e, doc) => {
                     {sentTo.map(({ activity, person, company }) => (
                       <span key={activity.id} className="tag tag-small">
                         {person?.name || company?.name || "Unknown"}
-                        <span className="tag-date">• {formatDate(activity.created)}</span>
+                        <span className="tag-date">
+                          • {formatDate(activity.created)}
+                        </span>
                       </span>
                     ))}
                   </div>
@@ -100,7 +138,12 @@ const handleOpenEdit = (e, doc) => {
           );
         })}
       </div>
-      {isFormOpen && <DocumentForm initialData={editingItem} onClose={() => setIsFormOpen(false)} />}
+      {isFormOpen && (
+        <DocumentForm
+          initialData={editingItem}
+          onClose={() => setIsFormOpen(false)}
+        />
+      )}
     </div>
   );
 }

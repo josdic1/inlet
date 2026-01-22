@@ -92,17 +92,6 @@
       "status": "closed",
       "created": "2026-01-22T21:17:28.625Z",
       "touches": []
-    },
-    {
-      "id": "f5e1",
-      "type": "content",
-      "note": "Updated huntr profile and brought all Projects current",
-      "link": "https://huntr.co/track/profile/builder/projects",
-      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
-      "personId": "",
-      "status": "closed",
-      "created": "2026-01-22T21:23:34.387Z",
-      "touches": []
     }
   ],
   "documents": [
