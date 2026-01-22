@@ -8,15 +8,17 @@ export function CompaniesPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-  const handleOpenAdd = () => {
-    setEditingItem(null);
-    setIsFormOpen(true);
-  };
+const handleOpenAdd = (e) => {
+  e.stopPropagation();
+  setEditingItem(null);
+  setIsFormOpen(true);
+};
 
-  const handleOpenEdit = (company) => {
-    setEditingItem(company);
-    setIsFormOpen(true);
-  };
+const handleOpenEdit = (e, company) => {
+  e.stopPropagation();
+  setEditingItem(company);
+  setIsFormOpen(true);
+};
 
   // We now use Lucide components directly in the config
   const tierConfig = {
@@ -58,7 +60,7 @@ export function CompaniesPage() {
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                   <span className={`badge badge-tier-${company.tier}`}>{config.label}</span>
-                  <button onClick={() => handleOpenEdit(company)} className="btn-icon">
+                  <button onClick={(e) => handleOpenEdit(e, company)}className="btn-icon">
                     <Edit2 size={16} />
                   </button>
                 </div>

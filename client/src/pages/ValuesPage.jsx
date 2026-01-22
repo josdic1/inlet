@@ -8,15 +8,17 @@ export function ValuesPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-  const handleOpenAdd = () => {
-    setEditingItem(null);
-    setIsFormOpen(true);
-  };
+const handleOpenAdd = (e) => {
+  e.stopPropagation();
+  setEditingItem(null);
+  setIsFormOpen(true);
+};
 
-  const handleOpenEdit = (value) => {
-    setEditingItem(value);
-    setIsFormOpen(true);
-  };
+const handleOpenEdit = (e, value) => {
+  e.stopPropagation();
+  setEditingItem(value);
+  setIsFormOpen(true);
+};
 
   const goodValues = data.values.filter((v) => v.type === "good");
   const badValues = data.values.filter((v) => v.type === "bad");
@@ -47,7 +49,7 @@ export function ValuesPage() {
               <div
                 key={value.id}
                 className="value-card value-card-good"
-                onClick={() => handleOpenEdit(value)}
+                onClick={(e) => handleOpenEdit(e, value)}
                 style={{ cursor: "pointer" }}
                 title="Click to edit"
               >

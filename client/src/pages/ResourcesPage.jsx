@@ -8,15 +8,17 @@ export function ResourcesPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-  const handleOpenAdd = () => {
-    setEditingItem(null);
-    setIsFormOpen(true);
-  };
+const handleOpenAdd = (e) => {
+  e.stopPropagation();
+  setEditingItem(null);
+  setIsFormOpen(true);
+};
 
-  const handleOpenEdit = (resource) => {
-    setEditingItem(resource);
-    setIsFormOpen(true);
-  };
+const handleOpenEdit = (e, resource) => {
+  e.stopPropagation();
+  setEditingItem(resource);
+  setIsFormOpen(true);
+};
 
   return (
     <div className="page">
@@ -38,7 +40,7 @@ export function ResourcesPage() {
               <div className="resource-card-info">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <h3>{resource.name}</h3>
-                  <button onClick={() => handleOpenEdit(resource)} className="btn-icon">
+                 <button onClick={(e) => handleOpenEdit(e, resource)} className="btn-icon">
                     <Edit2 size={14} />
                   </button>
                 </div>

@@ -10,14 +10,22 @@ export function QuickAddModal({ onClose }) {
     note: "",
     link: "",
     companyId: "",
-    personId: "" // Optional: If you want to link people too
+    personId: ""
   });
+
+  // Only close when clicking the actual overlay background
+  const handleOverlayClick = (e) => {
+    // Only close if the click target IS the overlay itself
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addActivity({
       ...formData,
-      status: "active" // Default to active
+      status: "open"
     });
     onClose();
   };
@@ -30,14 +38,14 @@ export function QuickAddModal({ onClose }) {
   ];
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div className="modal-overlay" onClick={handleOverlayClick}>
+      <div className="modal">
+        <div className="modal-header">
           <div>
             <h2>Quick Add</h2>
             <p className="modal-subtitle">Log a new activity</p>
           </div>
-          <button onClick={onClose} className="btn-icon">
+          <button type="button" onClick={onClose} className="btn-icon">
             <X size={20} />
           </button>
         </div>
@@ -78,7 +86,7 @@ export function QuickAddModal({ onClose }) {
               />
             </div>
 
-            {/* Company Dropdown (Smart!) */}
+            {/* Company Dropdown */}
             <div className="form-group">
               <label className="form-label">Company (Optional)</label>
               <select

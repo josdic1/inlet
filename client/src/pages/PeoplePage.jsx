@@ -8,16 +8,17 @@ export function PeoplePage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPerson, setEditingPerson] = useState(null);
 
-  const handleOpenAdd = () => {
-    setEditingPerson(null);
-    setIsFormOpen(true);
-  };
+const handleOpenAdd = (e) => {
+  e.stopPropagation();
+  setEditingPerson(null);
+  setIsFormOpen(true);
+};
 
-  const handleOpenEdit = (person) => {
-    setEditingPerson(person);
-    setIsFormOpen(true);
-  };
-
+const handleOpenEdit = (e, person) => {
+  e.stopPropagation();
+  setEditingPerson(person);
+  setIsFormOpen(true);
+};
   return (
     <div className="page">
       <div className="page-header">
@@ -60,11 +61,7 @@ export function PeoplePage() {
                   </p>
                 </div>
 
-                <button
-                  onClick={() => handleOpenEdit(person)}
-                  className="btn-icon"
-                  title="Edit"
-                >
+                <button onClick={(e) => handleOpenEdit(e, person)} className="btn-icon" title="Edit">
                   <Edit2 size={16} />
                 </button>
               </div>

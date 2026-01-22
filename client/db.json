@@ -1,8 +1,176 @@
 {
-  "people": [],
-  "companies": [],
+  "people": [
+    {
+      "id": "3e6329b3-5ec2-48f8-a6f6-7f8c675a3dd1",
+      "name": "Demi Dicker",
+      "role": "Co-Founder",
+      "companyId": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "link": "https://www.linkedin.com/in/joshdicker/",
+      "notes": "The specialist",
+      "dateAdded": "2026-01-22T19:46:51.265Z"
+    },
+    {
+      "id": "6145ace9-685b-4d1b-9ade-39f989a7d5c8",
+      "name": "Nancy Noyes",
+      "role": "Cohort Lead",
+      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
+      "link": "https://www.linkedin.com/in/nancy-noyes-0426256/",
+      "notes": "Keep in touch with Nancy",
+      "dateAdded": "2026-01-22T19:57:25.913Z"
+    },
+    {
+      "id": "17ce03e2-48c2-4af1-a05a-faea45a1d341",
+      "name": "Ann Heilman Murphy",
+      "role": "Career Counselor",
+      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
+      "link": "https://www.linkedin.com/in/ann-heilman-murphy/",
+      "notes": "Book meetings with Ann\nhttps://calendar.google.com/calendar/\nu/0/appointments/\nAcZssZ2X5_mTSvO4FiTJBIi-lGmjxeXPFEy54cGdhfI=",
+      "dateAdded": "2026-01-22T20:01:13.943Z"
+    },
+    {
+      "id": "6e23855e-09c6-4a73-950a-c9d92db48373",
+      "name": "Isaac",
+      "role": "Software Developer",
+      "companyId": "",
+      "link": "",
+      "notes": "Mik's friend 708-220-7614\\nNeed to get his linkedin and last name",
+      "dateAdded": "2026-01-22T20:05:36.946Z"
+    }
+  ],
+  "companies": [
+    {
+      "id": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "name": "Beautiful's Dream",
+      "tier": "reference",
+      "link": "https://www.youtube.com/@BeautifulsDream",
+      "notes": "Kids YouTube is a channel that creates fun, quirky kids’ music and songs that mix genres (pop, punk, EDM, etc.) aimed at entertaining and teaching children\""
+    },
+    {
+      "id": "21bb3dd4-bd17-4842-94fa-daf3a3ca3ff8",
+      "name": "Palantir Technologies",
+      "tier": "meh",
+      "link": "https://www.palantir.com/",
+      "notes": "Decentralized pods, high ownership, Meritocracy Fellowship."
+    },
+    {
+      "id": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
+      "name": "Flatiron School",
+      "tier": "reference",
+      "link": "https://learning.flatironschool.com/",
+      "notes": "Keep an eye out for alumni posting jobs for or working at companies"
+    },
+    {
+      "id": "08e14d39-47a7-473d-a29f-00b0c4d823b7",
+      "name": "Anduril Industries",
+      "tier": "meh",
+      "link": "https://www.anduril.com/",
+      "notes": "Defense tech; small, mission-driven teams like special ops ethos; high equity, merit-based, flat execution, founder-led ownership culture."
+    },
+    {
+      "id": "00e838d0-3a2a-4965-85e0-f7042e8456cc",
+      "name": "SpaceX",
+      "tier": "meh",
+      "link": "https://www.spacex.com/careers",
+      "notes": "Lean engineering teams; extreme ownership, best ideas rise fast, high stakes/equity, minimal bureaucracy in core work."
+    },
+    {
+      "id": "6d8682b0-b7f1-47ae-9feb-d63e5269494b",
+      "name": "Thiel Capital",
+      "tier": "meh",
+      "link": "https://www.linkedin.com/company/thiel-capital-llc/",
+      "notes": "Small, elite teams with real ownership, long-term merit focus, no corporate jargon/hierarchy."
+    }
+  ],
   "activities": [],
-  "documents": [],
-  "resources": [],
-  "values": []
+  "documents": [
+    {
+      "id": "91d2be4e-75db-434e-ab8f-475f2f67d9fd",
+      "name": "JOSH.DEV",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/demberry.com/"
+    },
+    {
+      "id": "cf6bcc9d-49ad-47a5-b9c7-a5521b4d13cf",
+      "name": "Resume 2026",
+      "type": "Resume",
+      "link": "https://drive.google.com/file/d/1v8rUQu_-tw5v3d4tWmPkZe05g35urELb/view?usp=sharing"
+    },
+    {
+      "id": "b815e362-f434-4a51-bcbf-fca29c4d52ab",
+      "name": "SlateSnap",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/slater/"
+    },
+    {
+      "id": "1fb0077e-e7cc-4ce3-89f3-469d17c1d329",
+      "name": "aTrakk",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/atrakk-demo/"
+    },
+    {
+      "id": "7d1230c7-04d1-4428-b212-3a0bab04ddda",
+      "name": "CheatSheet Demo",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/cheatsheet_mvp/"
+    },
+    {
+      "id": "e3f60462-7186-4eef-bca1-83113791f547",
+      "name": "CheatSheet Full-Stack Live",
+      "type": "Portfolio",
+      "link": "https://cheatsheet-static.onrender.com/login"
+    },
+    {
+      "id": "6b2086fc-498d-4094-9058-19a61be41ab3",
+      "name": "Auto Dealer Offers",
+      "type": "Portfolio",
+      "link": "https://cheatsheet-static.onrender.com/login"
+    },
+    {
+      "id": "ea3c574e-81bb-40c7-b9e7-1d8dbbf320e2",
+      "name": "Bookafella",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/bookafella-demo/home"
+    },
+    {
+      "id": "d1d2b5a5-5ba1-45da-9972-b7e4a968eb11",
+      "name": "LaundroSpin",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/suddsy-demo/"
+    }
+  ],
+  "resources": [
+    {
+      "id": "d8da711b-f528-4517-8192-a1781c9a606e",
+      "name": "Builtin.com",
+      "link": "https://builtin.com/",
+      "notes": "Tech-focused job and career platform where you can search tech and startup jobs, explore company profiles, and read industry news and career resources.",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "bce1a0b3-3361-4b4c-a187-e2752d37a6f8",
+      "name": "Lumascapes",
+      "link": "https://lumapartners.com/lumascapes/",
+      "notes": "❌ UNHELPFUL Visual maps that organize and illustrate the digital media, marketing, and ad tech ecosystem so you can see how key companies and categories fit together in a complex industry.",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "f6b0a920-1993-4bf2-bf9e-1122a1b59ca2",
+      "name": "Job Search Strategy Bingo",
+      "link": "https://docs.google.com/document/d/1f1DRetFXMn6syJY396ZoB55IOwwp10SB5gGQlkNCN3I/edit?usp=sharing",
+      "notes": "Fill in boxes when tasks are completed",
+      "lastEngaged": "2026-01-22"
+    }
+  ],
+  "values": [
+    {
+      "id": "deef5964-6581-441f-9e70-87cdddbd620c",
+      "text": "Plain language over jargon",
+      "type": "good"
+    },
+    {
+      "id": "65ac2878-63d7-49d3-b53b-558f17dfe252",
+      "text": "Tools that last",
+      "type": "good"
+    }
+  ]
 }

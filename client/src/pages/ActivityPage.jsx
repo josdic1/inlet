@@ -56,7 +56,10 @@ export function ActivityPage() {
           </p>
         </div>
         <button
-          onClick={() => setShowQuickAdd(true)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowQuickAdd(true);
+          }}
           className="btn btn-primary btn-with-icon"
         >
           <Plus size={20} />

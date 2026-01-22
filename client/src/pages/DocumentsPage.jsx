@@ -9,15 +9,17 @@ export function DocumentsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-  const handleOpenAdd = () => {
-    setEditingItem(null);
-    setIsFormOpen(true);
-  };
+const handleOpenAdd = (e) => {
+  e.stopPropagation();
+  setEditingItem(null);
+  setIsFormOpen(true);
+};
 
-  const handleOpenEdit = (doc) => {
-    setEditingItem(doc);
-    setIsFormOpen(true);
-  };
+const handleOpenEdit = (e, doc) => {
+  e.stopPropagation();
+  setEditingItem(doc);
+  setIsFormOpen(true);
+};
 
   const copyToClipboard = (text, id) => {
     navigator.clipboard.writeText(text);
@@ -57,8 +59,7 @@ export function DocumentsPage() {
                 <div className="document-card-info">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <h3>{doc.name}</h3>
-                    <button onClick={() => handleOpenEdit(doc)} className="btn-icon" title="Edit">
-                      <Edit2 size={16} />
+                    <button onClick={(e) => handleOpenEdit(e, doc)} className="btn-icon" title="Edit">
                     </button>
                   </div>
                   <p>{doc.type}</p>
