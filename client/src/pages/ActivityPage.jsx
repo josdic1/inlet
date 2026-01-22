@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Plus, ClipboardList } from "lucide-react"; // <--- Clean imports
+import { Plus, ClipboardList } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { ActivityCard } from "../components/ActivityCard";
 import { QuickAddModal } from "../components/QuickAddModal";
@@ -13,6 +13,7 @@ export function ActivityPage() {
 
   const activityFilter = searchParams.get("type") || "all";
   const statusFilter = searchParams.get("status") || "all";
+  const companyFilter = searchParams.get("company") || null;
 
   const setActivityFilter = (type) => {
     const params = new URLSearchParams(searchParams);
@@ -42,9 +43,18 @@ export function ActivityPage() {
     if (statusFilter !== "all") {
       filtered = filtered.filter((a) => a.status === statusFilter);
     }
+    if (companyFilter) {
+      filtered = filtered.filter((a) => a.companyId === companyFilter);
+    }
     filtered.sort((a, b) => getLatestTimestamp(b) - getLatestTimestamp(a));
     return filtered;
-  }, [data.activities, activityFilter, statusFilter, getLatestTimestamp]);
+  }, [
+    data.activities,
+    activityFilter,
+    statusFilter,
+    companyFilter,
+    getLatestTimestamp,
+  ]);
 
   return (
     <div className="page">

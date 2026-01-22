@@ -103,28 +103,6 @@
       "status": "closed",
       "created": "2026-01-22T21:23:34.387Z",
       "touches": []
-    },
-    {
-      "id": "f352",
-      "type": "content",
-      "note": "Updated GitHub to be clean and green",
-      "link": "https://github.com/josdic1",
-      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
-      "personId": "",
-      "status": "closed",
-      "created": "2026-01-22T21:37:39.538Z",
-      "touches": []
-    },
-    {
-      "id": "8bf3",
-      "type": "content",
-      "note": "Completed Targeted Job Strategy questionnaire",
-      "link": "https://docs.google.com/document/d/10HLNIVIzjS1mW9ZaBiV1gAEeFW9DE1ac/edit",
-      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
-      "personId": "",
-      "status": "closed",
-      "created": "2026-01-22T21:39:23.389Z",
-      "touches": []
     }
   ],
   "documents": [
@@ -193,18 +171,6 @@
       "name": "Investor Pitch (Analytics)",
       "type": "Promotion",
       "link": "https://drive.google.com/file/d/1IiLagZXK0izGnTSIh01uHloDlrYzYcc_/view?usp=sharing"
-    },
-    {
-      "id": "31bcaca3-863e-4e5c-bf3f-13d00b6c4071",
-      "name": "Targeted Job Strategy Sheet",
-      "type": "Promotion",
-      "link": "https://docs.google.com/document/d/10HLNIVIzjS1mW9ZaBiV1gAEeFW9DE1ac/edit"
-    },
-    {
-      "id": "c98f2a52-82ae-4a53-8c40-c8b2faf47e7d",
-      "name": "Job Search Bingo",
-      "type": "Promotion",
-      "link": "https://docs.google.com/document/d/1f1DRetFXMn6syJY396ZoB55IOwwp10SB5gGQlkNCN3I/edit?tab=t.0"
     }
   ],
   "resources": [

@@ -82,7 +82,9 @@ export function DocumentsPage() {
                       onClick={(e) => handleOpenEdit(e, doc)}
                       className="btn-icon"
                       title="Edit"
-                    ></button>
+                    >
+                      <Edit2 size={16} />
+                    </button>
                   </div>
                   <p>{doc.type}</p>
                 </div>

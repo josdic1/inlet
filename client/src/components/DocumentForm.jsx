@@ -25,7 +25,14 @@ export function DocumentForm({ onClose, initialData = null }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div
+      className="modal-overlay"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{isEditing ? "Edit Document" : "Add Document"}</h2>
@@ -40,22 +47,26 @@ export function DocumentForm({ onClose, initialData = null }) {
                 className="form-input"
                 placeholder="e.g. Resume V2 - Tech Focus"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
               />
             </div>
             <div className="form-group">
               <label className="form-label">Type</label>
               <div className="form-doc-buttons">
-                {["Resume", "Cover Letter", "Portfolio"].map((type) => (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => setFormData({ ...formData, type })}
-                    className={`form-doc-btn ${formData.type === type ? "form-doc-btn-active" : ""}`}
-                  >
-                    {type}
-                  </button>
-                ))}
+                {["Resume", "Cover Letter", "Portfolio", "Promotion"].map(
+                  (type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, type })}
+                      className={`form-doc-btn ${formData.type === type ? "form-doc-btn-active" : ""}`}
+                    >
+                      {type}
+                    </button>
+                  ),
+                )}
               </div>
             </div>
             <div className="form-group">
@@ -66,13 +77,23 @@ export function DocumentForm({ onClose, initialData = null }) {
                 className="form-input"
                 placeholder="Google Drive link..."
                 value={formData.link}
-                onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, link: e.target.value })
+                }
               />
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" onClick={onClose} className="btn btn-secondary">Cancel</button>
-            <button type="submit" className="btn btn-primary">Save</button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-secondary"
+            >
+              Cancel
+            </button>
+            <button type="submit" className="btn btn-primary">
+              Save
+            </button>
           </div>
         </form>
       </div>

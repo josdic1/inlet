@@ -10,6 +10,7 @@ import {
   Binoculars,
 } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
+import { Link } from "react-router-dom";
 import { CompanyForm } from "../components/CompanyForm";
 
 export function CompaniesPage() {
@@ -114,8 +115,12 @@ export function CompaniesPage() {
               )}
 
               <div className="company-card-footer">
-                <span>{relatedActivities.length} activities</span>
-                <span>{relatedPeople.length} contacts</span>
+                <Link to={`/?company=${company.id}`}>
+                  {relatedActivities.length} activities
+                </Link>
+                <Link to={`/people?company=${company.id}`}>
+                  {relatedPeople.length} contacts
+                </Link>
               </div>
             </div>
           );

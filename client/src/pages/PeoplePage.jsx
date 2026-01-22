@@ -1,24 +1,34 @@
-import { useState } from "react";
-import { Plus, Edit2, Linkedin } from "lucide-react"; // <--- Look how clean imports are
+import { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Plus, Edit2, Linkedin } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { PeopleForm } from "../components/PeopleForm";
 
 export function PeoplePage() {
   const { data, getCompany } = useAuth();
+  const [searchParams] = useSearchParams();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPerson, setEditingPerson] = useState(null);
 
-const handleOpenAdd = (e) => {
-  e.stopPropagation();
-  setEditingPerson(null);
-  setIsFormOpen(true);
-};
+  const companyFilter = searchParams.get("company") || null;
 
-const handleOpenEdit = (e, person) => {
-  e.stopPropagation();
-  setEditingPerson(person);
-  setIsFormOpen(true);
-};
+  const filteredPeople = useMemo(() => {
+    if (!companyFilter) return data.people;
+    return data.people.filter((p) => p.companyId === companyFilter);
+  }, [data.people, companyFilter]);
+
+  const handleOpenAdd = (e) => {
+    e.stopPropagation();
+    setEditingPerson(null);
+    setIsFormOpen(true);
+  };
+
+  const handleOpenEdit = (e, person) => {
+    e.stopPropagation();
+    setEditingPerson(person);
+    setIsFormOpen(true);
+  };
+
   return (
     <div className="page">
       <div className="page-header">
@@ -36,7 +46,7 @@ const handleOpenEdit = (e, person) => {
       </div>
 
       <div className="card-grid">
-        {data.people.map((person) => {
+        {filteredPeople.map((person) => {
           const company = person.companyId
             ? getCompany(person.companyId)
             : null;
@@ -61,7 +71,11 @@ const handleOpenEdit = (e, person) => {
                   </p>
                 </div>
 
-                <button onClick={(e) => handleOpenEdit(e, person)} className="btn-icon" title="Edit">
+                <button
+                  onClick={(e) => handleOpenEdit(e, person)}
+                  className="btn-icon"
+                  title="Edit"
+                >
                   <Edit2 size={16} />
                 </button>
               </div>
