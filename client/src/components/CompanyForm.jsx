@@ -54,6 +54,7 @@ export function CompanyForm({ onClose, initialData = null }) {
                 <option value="dream">Dream (★)</option>
                 <option value="meh">Meh (○)</option>
                 <option value="blacklist">Blacklist (✕)</option>
+                <option value="researching">Researching (?)</option>
                 <option value="reference">Reference (-)</option>
               </select>
             </div>

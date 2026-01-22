@@ -8,29 +8,39 @@ export function ValuesPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
-const handleOpenAdd = (e) => {
-  e.stopPropagation();
-  setEditingItem(null);
-  setIsFormOpen(true);
-};
+  const handleOpenAdd = (e) => {
+    e.stopPropagation();
+    setEditingItem(null);
+    setIsFormOpen(true);
+  };
 
-const handleOpenEdit = (e, value) => {
-  e.stopPropagation();
-  setEditingItem(value);
-  setIsFormOpen(true);
-};
+  const handleOpenEdit = (e, value) => {
+    e.stopPropagation();
+    setEditingItem(value);
+    setIsFormOpen(true);
+  };
 
-  const goodValues = data.values.filter((v) => v.type === "good");
-  const badValues = data.values.filter((v) => v.type === "bad");
+  const goodValues = data.values
+    .filter((v) => v.type === "good")
+    .sort((a, b) => a.text.localeCompare(b.text));
+
+  const badValues = data.values
+    .filter((v) => v.type === "bad")
+    .sort((a, b) => a.text.localeCompare(b.text));
 
   return (
     <div className="page">
       <div className="page-header">
         <div>
           <h1 className="page-title">Values</h1>
-          <p className="page-subtitle">Your non-negotiables and deal breakers</p>
+          <p className="page-subtitle">
+            Your non-negotiables and deal breakers
+          </p>
         </div>
-        <button onClick={handleOpenAdd} className="btn btn-primary btn-with-icon">
+        <button
+          onClick={handleOpenAdd}
+          className="btn btn-primary btn-with-icon"
+        >
           <Plus size={20} />
           Add Value
         </button>
@@ -81,7 +91,12 @@ const handleOpenEdit = (e, value) => {
           </div>
         </div>
       </div>
-      {isFormOpen && <ValueForm initialData={editingItem} onClose={() => setIsFormOpen(false)} />}
+      {isFormOpen && (
+        <ValueForm
+          initialData={editingItem}
+          onClose={() => setIsFormOpen(false)}
+        />
+      )}
     </div>
   );
 }

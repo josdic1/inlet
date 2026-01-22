@@ -48,7 +48,7 @@
     {
       "id": "21bb3dd4-bd17-4842-94fa-daf3a3ca3ff8",
       "name": "Palantir Technologies",
-      "tier": "meh",
+      "tier": "researching",
       "link": "https://www.palantir.com/",
       "notes": "Decentralized pods, high ownership, Meritocracy Fellowship."
     },
@@ -62,21 +62,21 @@
     {
       "id": "08e14d39-47a7-473d-a29f-00b0c4d823b7",
       "name": "Anduril Industries",
-      "tier": "meh",
+      "tier": "researching",
       "link": "https://www.anduril.com/",
       "notes": "Defense tech; small, mission-driven teams like special ops ethos; high equity, merit-based, flat execution, founder-led ownership culture."
     },
     {
       "id": "00e838d0-3a2a-4965-85e0-f7042e8456cc",
       "name": "SpaceX",
-      "tier": "meh",
+      "tier": "researching",
       "link": "https://www.spacex.com/careers",
       "notes": "Lean engineering teams; extreme ownership, best ideas rise fast, high stakes/equity, minimal bureaucracy in core work."
     },
     {
       "id": "6d8682b0-b7f1-47ae-9feb-d63e5269494b",
       "name": "Thiel Capital",
-      "tier": "meh",
+      "tier": "researching",
       "link": "https://www.linkedin.com/company/thiel-capital-llc/",
       "notes": "Small, elite teams with real ownership, long-term merit focus, no corporate jargon/hierarchy."
     }
@@ -159,6 +159,20 @@
       "link": "https://docs.google.com/document/d/1f1DRetFXMn6syJY396ZoB55IOwwp10SB5gGQlkNCN3I/edit?usp=sharing",
       "notes": "Fill in boxes when tasks are completed",
       "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "dde6ec73-d27a-4555-b761-88f37140af67",
+      "name": "Huntr",
+      "link": "https://huntr.co/track/profile/builder/basic-info",
+      "notes": "Simple tool that helps you organize your job hunt, track applications, quickly make custom resumes and cover letters, and auto-fill forms.",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "242e356e-dee7-4d2b-8e41-c4cb8f524ce8",
+      "name": "GitHub",
+      "link": "https://github.com/josdic1?tab=repositories",
+      "notes": "Keep my github updated and clean",
+      "lastEngaged": "2026-01-22"
     }
   ],
   "values": [
@@ -170,6 +184,46 @@
     {
       "id": "65ac2878-63d7-49d3-b53b-558f17dfe252",
       "text": "Tools that last",
+      "type": "good"
+    },
+    {
+      "id": "44dbef33-c344-48cb-b85e-251d5d16c572",
+      "text": "Output over optics",
+      "type": "good"
+    },
+    {
+      "id": "3b3d4954-3944-4e42-8b33-6ffc11020f8e",
+      "text": "Direct, honest feedback",
+      "type": "good"
+    },
+    {
+      "id": "4e4c8738-7f83-4221-9d7c-ee8a840fb18e",
+      "text": "Meritocracy",
+      "type": "good"
+    },
+    {
+      "id": "20d6b038-d988-40ed-aeb3-c0c8349aae00",
+      "text": "Transparency",
+      "type": "good"
+    },
+    {
+      "id": "f663b0e5-f6b2-4e18-8039-e31cc9ed4e04",
+      "text": "Deep focus time",
+      "type": "good"
+    },
+    {
+      "id": "cfd65dda-37e6-45f9-b559-3f82552c1092",
+      "text": "Code that explains itself",
+      "type": "good"
+    },
+    {
+      "id": "5268e54c-a45d-48ec-bba0-ad61397b9497",
+      "text": "Leaders with real stake in the outcome",
+      "type": "good"
+    },
+    {
+      "id": "c33b8fd6-5e05-4fd0-bed4-eb1266ba75ff",
+      "text": "Room to question how things are done",
       "type": "good"
     }
   ]

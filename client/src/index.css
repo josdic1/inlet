@@ -760,6 +760,13 @@ select {
 }
 
 /* Company Cards */
+.badge-tier-researching {
+  background-color: #f56565;
+  color: white;
+}
+.company-card-researching {
+  border-left-color: #f56565;
+}
 .company-card {
   border-radius: var(--radius-2xl);
   border: 1px solid;

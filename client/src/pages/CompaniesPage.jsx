@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Plus, Edit2, Globe, Star, Circle, X, Archive } from "lucide-react";
+import {
+  Plus,
+  Edit2,
+  Globe,
+  Star,
+  Circle,
+  X,
+  Archive,
+  Binoculars,
+} from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { CompanyForm } from "../components/CompanyForm";
 
@@ -26,6 +35,7 @@ export function CompaniesPage() {
     meh: { Icon: Circle, label: "Meh" },
     blacklist: { Icon: X, label: "Blacklist" },
     reference: { label: "Reference", Icon: Archive, color: "#94a3b8" },
+    researching: { label: "Researching", Icon: Binoculars, color: "#f56565" },
   };
 
   return (
