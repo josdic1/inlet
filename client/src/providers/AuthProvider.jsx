@@ -12,7 +12,11 @@ export function AuthProvider({ children }) {
   });
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:3000";
+  const API_URL = import.meta.env.PROD
+    ? import.meta.env.BASE_URL
+    : "http://localhost:3000";
+
+  const IS_PROD = import.meta.env.PROD;
 
   // 1. Initial Load (The "fetchLinks" equivalent)
   useEffect(() => {
@@ -21,7 +25,25 @@ export function AuthProvider({ children }) {
 
   async function fetchAllData() {
     try {
-      // We use Promise.all to fetch everything at the same time (Fast!)
+      if (import.meta.env.PROD) {
+        // GitHub Pages: load one static file
+        const r = await fetch(`${import.meta.env.BASE_URL}db.json`);
+        if (!r.ok) throw new Error("💥 Error fetching db.json");
+        const db = await r.json();
+
+        setData({
+          people: db.people ?? [],
+          companies: db.companies ?? [],
+          activities: db.activities ?? [],
+          documents: db.documents ?? [],
+          resources: db.resources ?? [],
+          values: db.values ?? [],
+        });
+        setLoading(false);
+        return;
+      }
+
+      // Dev: hit json-server endpoints
       const [
         peopleRes,
         companiesRes,
@@ -38,7 +60,6 @@ export function AuthProvider({ children }) {
         fetch(`${API_URL}/values`),
       ]);
 
-      // If ANY of them failed, throw an error
       if (
         !peopleRes.ok ||
         !companiesRes.ok ||
@@ -50,7 +71,6 @@ export function AuthProvider({ children }) {
         throw new Error("💥 Error fetching one or more collections");
       }
 
-      // Unpack the JSON data
       const people = await peopleRes.json();
       const companies = await companiesRes.json();
       const activities = await activitiesRes.json();
@@ -58,15 +78,7 @@ export function AuthProvider({ children }) {
       const resources = await resourcesRes.json();
       const values = await valuesRes.json();
 
-      // Update State
-      setData({
-        people,
-        companies,
-        activities,
-        documents,
-        resources,
-        values,
-      });
+      setData({ people, companies, activities, documents, resources, values });
       setLoading(false);
     } catch (error) {
       console.error("❌ Caught error:", error);
@@ -77,6 +89,12 @@ export function AuthProvider({ children }) {
   // --- GENERIC HANDLERS (To keep code DRY but matches your style) ---
 
   async function handleAddNew(collection, newItem) {
+    if (IS_PROD) {
+      // GitHub Pages is static hosting. No server = no writes.
+      console.warn("Read-only mode on GitHub Pages: cannot add", collection);
+      return;
+    }
+
     try {
       const r = await fetch(`${API_URL}/${collection}`, {
         method: "POST",
@@ -86,20 +104,22 @@ export function AuthProvider({ children }) {
       if (!r.ok) throw new Error(`💥 Error adding to ${collection}`);
 
       const savedItem = await r.json();
-
-      // Update State using the Server's Data
       setData((prev) => ({
         ...prev,
         [collection]: [...prev[collection], savedItem],
       }));
-
-      return savedItem; // Return it in case the form needs it
+      return savedItem;
     } catch (error) {
       console.error("❌ Caught error:", error);
     }
   }
 
   async function handleUpdate(collection, itemToUpdate) {
+    if (IS_PROD) {
+      console.warn("Read-only mode on GitHub Pages: cannot update", collection);
+      return;
+    }
+
     try {
       const r = await fetch(`${API_URL}/${collection}/${itemToUpdate.id}`, {
         method: "PATCH",
@@ -109,8 +129,6 @@ export function AuthProvider({ children }) {
       if (!r.ok) throw new Error(`💥 Error updating ${collection}`);
 
       const savedItem = await r.json();
-
-      // Update State
       setData((prev) => ({
         ...prev,
         [collection]: prev[collection].map((item) =>
