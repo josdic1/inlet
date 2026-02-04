@@ -172,6 +172,13 @@
       "tier": "dream",
       "link": "https://kit.com/careers",
       "notes": "Remote and documentation-driven; strong respect for maker schedule with structured debate."
+    },
+    {
+      "id": "9069db73-714a-4da0-9023-02e2a4d6a618",
+      "name": "Replit",
+      "tier": "meh",
+      "link": "https://replit.com/careers",
+      "notes": "Innovative and builder-focused but more real-time collaboration and startup velocity may reduce deep work blocks."
     }
   ],
   "activities": [

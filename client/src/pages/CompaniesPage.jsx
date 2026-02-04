@@ -11,6 +11,7 @@ import {
   Binoculars,
   Search,
   RotateCcw,
+  BriefcaseBusiness,
 } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
@@ -32,6 +33,9 @@ export function CompaniesPage() {
   const [tier, setTier] = useState("all");
   const [refreshKey, setRefreshKey] = useState(0);
 
+  // ✅ default: blacklist hidden
+  const [showBlacklist, setShowBlacklist] = useState(false);
+
   const handleOpenAdd = (e) => {
     e.stopPropagation();
     setEditingItem(null);
@@ -48,16 +52,29 @@ export function CompaniesPage() {
     dream: { Icon: Star, label: "Dream" },
     meh: { Icon: Circle, label: "Meh" },
     blacklist: { Icon: X, label: "Blacklist" },
-    reference: { label: "Reference", Icon: Archive },
-    researching: { label: "Researching", Icon: Binoculars },
+    reference: { Icon: Archive, label: "Reference" },
+    researching: { Icon: Binoculars, label: "Researching" },
   };
+
+  // Hide Blacklist option from dropdown unless toggled on
+  const tierOptions = useMemo(() => {
+    const keys = Object.keys(tierConfig);
+    return showBlacklist ? keys : keys.filter((k) => k !== "blacklist");
+  }, [showBlacklist]);
 
   const companies = useMemo(() => {
     const q = normalize(search);
     let out = [...(data.companies ?? [])];
 
+    // ✅ hard-hide blacklisted items unless toggle is on
+    if (!showBlacklist) {
+      out = out.filter((c) => c.tier !== "blacklist");
+    }
+
+    // Tier filter
     if (tier !== "all") out = out.filter((c) => c.tier === tier);
 
+    // Search filter
     if (q) {
       out = out.filter((c) => {
         const hay =
@@ -74,21 +91,53 @@ export function CompaniesPage() {
     });
 
     return out;
-  }, [data.companies, search, tier, refreshKey]);
+  }, [data.companies, search, tier, refreshKey, showBlacklist]);
 
   const handleReset = () => {
     setSearch("");
     setTier("all");
+    setShowBlacklist(false); // ✅ reset back to hidden
   };
+
   const handleRefresh = () => setRefreshKey((k) => k + 1);
+
+  const toggleBlacklist = () => {
+    setShowBlacklist((prev) => {
+      const next = !prev;
+      // If blacklist is being hidden, make sure tier isn't stuck on "blacklist"
+      if (!next && tier === "blacklist") setTier("all");
+      return next;
+    });
+  };
 
   return (
     <div className="page">
       <div className="page-header">
         <div>
-          <h1 className="page-title">Companies</h1>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
+          >
+            <h1 className="page-title">Companies</h1>
+
+            {/* ✅ Business icon toggles blacklist show/hide */}
+            <button
+              type="button"
+              onClick={toggleBlacklist}
+              className="btn-icon"
+              title={showBlacklist ? "Hide blacklist" : "Show blacklist"}
+              aria-label={showBlacklist ? "Hide blacklist" : "Show blacklist"}
+              style={{
+                opacity: showBlacklist ? 1 : 0.6,
+                transform: "translateY(1px)",
+              }}
+            >
+              <BriefcaseBusiness size={18} />
+            </button>
+          </div>
+
           <p className="page-subtitle">Track your target companies and tiers</p>
         </div>
+
         <button
           onClick={handleOpenAdd}
           className="btn btn-primary btn-with-icon"
@@ -115,7 +164,7 @@ export function CompaniesPage() {
             onChange={(e) => setTier(e.target.value)}
           >
             <option value="all">Tier: All</option>
-            {Object.keys(tierConfig).map((t) => (
+            {tierOptions.map((t) => (
               <option key={t} value={t}>
                 Tier: {tierConfig[t].label}
               </option>
@@ -140,10 +189,10 @@ export function CompaniesPage() {
 
       <div className="card-grid">
         {companies.map((company) => {
-          const relatedActivities = data.activities.filter(
+          const relatedActivities = (data.activities ?? []).filter(
             (a) => a.companyId === company.id,
           );
-          const relatedPeople = data.people.filter(
+          const relatedPeople = (data.people ?? []).filter(
             (p) => p.companyId === company.id,
           );
 
@@ -176,6 +225,7 @@ export function CompaniesPage() {
                   <button
                     onClick={(e) => handleOpenEdit(e, company)}
                     className="btn-icon"
+                    title="Edit"
                   >
                     <Edit2 size={16} />
                   </button>
