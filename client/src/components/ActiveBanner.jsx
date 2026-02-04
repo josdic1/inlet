@@ -17,6 +17,11 @@ export function ActiveBanner() {
     params.set("status", "active");
 
     setSearchParams(params);
+
+    // Optional: scroll to the list anchor if present
+    setTimeout(() => {
+      document.getElementById("active")?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
   };
 
   return (
@@ -29,18 +34,16 @@ export function ActiveBanner() {
       <div className="active-banner-text">
         <span style={{ fontWeight: 800 }}>{activeItems.length}</span> Active
         Threads
-        <span
-          style={{
-            fontWeight: 400,
-            marginLeft: "0.5rem",
-            opacity: 0.8,
-          }}
-        >
+        <span style={{ fontWeight: 400, marginLeft: "0.5rem", opacity: 0.8 }}>
           (Waiting on replies or next steps)
         </span>
       </div>
 
-      <button onClick={viewNextSteps} className="active-banner-link">
+      <button
+        onClick={viewNextSteps}
+        className="active-banner-link"
+        type="button"
+      >
         View Next Steps
         <ArrowRight size={14} style={{ marginLeft: 4 }} />
       </button>

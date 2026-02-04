@@ -13,30 +13,12 @@ export const routes = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <ActivityPage />,
-      },
-      {
-        path: "companies",
-        element: <CompaniesPage />,
-      },
-      {
-        path: "people",
-        element: <PeoplePage />,
-      },
-      {
-        path: "documents",
-        element: <DocumentsPage />,
-      },
-      {
-        path: "values",
-        element: <ValuesPage />,
-      },
-      {
-        path: "resources",
-        element: <ResourcesPage />,
-      },
+      { index: true, element: <ActivityPage /> },
+      { path: "companies", element: <CompaniesPage /> },
+      { path: "people", element: <PeoplePage /> },
+      { path: "documents", element: <DocumentsPage /> },
+      { path: "values", element: <ValuesPage /> },
+      { path: "resources", element: <ResourcesPage /> },
     ],
   },
 ];

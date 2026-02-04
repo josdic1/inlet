@@ -5,6 +5,10 @@ import { useAuth } from "../hooks/useAuth";
 import { ActivityCard } from "../components/ActivityCard";
 import { QuickAddModal } from "../components/QuickAddModal";
 import { ActiveBanner } from "../components/ActiveBanner";
+import { DemoBanner } from "./components/DemoBanner";
+
+// inside render:
+<DemoBanner />;
 
 const normalize = (s) => (s ?? "").toString().toLowerCase().trim();
 

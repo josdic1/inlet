@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
     companies: [],
     activities: [],
     documents: [],
-    resources: [], // Matches your "links" concept
+    resources: [],
     values: [],
   });
   const [loading, setLoading] = useState(true);
@@ -18,14 +18,14 @@ export function AuthProvider({ children }) {
 
   const IS_PROD = import.meta.env.PROD;
 
-  // 1. Initial Load (The "fetchLinks" equivalent)
+  // 1) Initial load
   useEffect(() => {
     fetchAllData();
   }, []);
 
   async function fetchAllData() {
     try {
-      if (import.meta.env.PROD) {
+      if (IS_PROD) {
         // GitHub Pages: load one static file
         const r = await fetch(`${import.meta.env.BASE_URL}db.json`);
         if (!r.ok) throw new Error("💥 Error fetching db.json");
@@ -86,13 +86,12 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // --- GENERIC HANDLERS (To keep code DRY but matches your style) ---
+  // --- GENERIC HANDLERS ---
 
   async function handleAddNew(collection, newItem) {
     if (IS_PROD) {
-      // GitHub Pages is static hosting. No server = no writes.
       console.warn("Read-only mode on GitHub Pages: cannot add", collection);
-      return;
+      return null;
     }
 
     try {
@@ -104,20 +103,23 @@ export function AuthProvider({ children }) {
       if (!r.ok) throw new Error(`💥 Error adding to ${collection}`);
 
       const savedItem = await r.json();
+
       setData((prev) => ({
         ...prev,
         [collection]: [...prev[collection], savedItem],
       }));
+
       return savedItem;
     } catch (error) {
       console.error("❌ Caught error:", error);
+      return null;
     }
   }
 
   async function handleUpdate(collection, itemToUpdate) {
     if (IS_PROD) {
       console.warn("Read-only mode on GitHub Pages: cannot update", collection);
-      return;
+      return null;
     }
 
     try {
@@ -129,20 +131,24 @@ export function AuthProvider({ children }) {
       if (!r.ok) throw new Error(`💥 Error updating ${collection}`);
 
       const savedItem = await r.json();
+
       setData((prev) => ({
         ...prev,
         [collection]: prev[collection].map((item) =>
           item.id === savedItem.id ? savedItem : item,
         ),
       }));
+
+      return savedItem;
     } catch (error) {
       console.error("❌ Caught error:", error);
+      return null;
     }
   }
 
-  // --- PUBLIC INTERFACE (Specific functions for your components) ---
+  // --- PUBLIC ACTIONS ---
 
-  // 1. ACTIVITIES
+  // 1) ACTIVITIES
   const addActivity = async (formData) => {
     const newActivity = {
       ...formData,
@@ -150,7 +156,6 @@ export function AuthProvider({ children }) {
       created: new Date().toISOString(),
       touches: [],
     };
-    // No ID generation here! The server does it.
     await handleAddNew("activities", newActivity);
   };
 
@@ -163,7 +168,6 @@ export function AuthProvider({ children }) {
       { date: new Date().toISOString(), note },
     ];
 
-    // We send ONLY the changes to handleUpdate
     await handleUpdate("activities", {
       id: activityId,
       status: "active",
@@ -175,27 +179,20 @@ export function AuthProvider({ children }) {
     await handleUpdate("activities", { id: activityId, status: newStatus });
   };
 
-  // 2. OTHER ENTITIES
-  const addPerson = async (personData) =>
-    await handleAddNew("people", personData);
-  const updatePerson = async (id, updates) =>
-    await handleUpdate("people", { id, ...updates });
+  // 2) OTHER ENTITIES
+  const addPerson = async (personData) => await handleAddNew("people", personData);
+  const updatePerson = async (id, updates) => await handleUpdate("people", { id, ...updates });
 
-  const addCompany = async (companyData) =>
-    await handleAddNew("companies", companyData);
-  const updateCompany = async (id, updates) =>
-    await handleUpdate("companies", { id, ...updates });
+  const addCompany = async (companyData) => await handleAddNew("companies", companyData);
+  const updateCompany = async (id, updates) => await handleUpdate("companies", { id, ...updates });
 
-  const addDocument = async (docData) =>
-    await handleAddNew("documents", docData);
-  const updateDocument = async (id, updates) =>
-    await handleUpdate("documents", { id, ...updates });
+  const addDocument = async (docData) => await handleAddNew("documents", docData);
+  const updateDocument = async (id, updates) => await handleUpdate("documents", { id, ...updates });
 
   const addValue = async (valData) => await handleAddNew("values", valData);
-  const updateValue = async (id, updates) =>
-    await handleUpdate("values", { id, ...updates });
+  const updateValue = async (id, updates) => await handleUpdate("values", { id, ...updates });
 
-  // 3. RESOURCES (Your "Links")
+  // 3) RESOURCES
   const addResource = async (resData) => {
     const payload = {
       ...resData,
@@ -212,7 +209,7 @@ export function AuthProvider({ children }) {
     await handleUpdate("resources", { id: resourceId, lastEngaged: today });
   };
 
-  // --- HELPERS (Read-Only) ---
+  // --- READ HELPERS ---
   const getPerson = (id) => data.people.find((p) => p.id === id);
   const getCompany = (id) => data.companies.find((c) => c.id === id);
   const getDocument = (id) => data.documents.find((d) => d.id === id);
@@ -251,10 +248,43 @@ export function AuthProvider({ children }) {
     [data.activities],
   );
 
+  // --- DEMO MODE BANNER / SNAPSHOT ---
+  const isDemo = IS_PROD;
+
+  const downloadSnapshot = () => {
+    const snapshot = {
+      people: data.people ?? [],
+      companies: data.companies ?? [],
+      activities: data.activities ?? [],
+      documents: data.documents ?? [],
+      resources: data.resources ?? [],
+      values: data.values ?? [],
+      exportedAt: new Date().toISOString(),
+      app: "Inlet",
+    };
+
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], {
+      type: "application/json",
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `inlet-snapshot-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+
   const value = {
     data,
     loading,
     loggedIn: true,
+
+    // Demo helpers
+    isDemo,
+    downloadSnapshot,
 
     // Helpers
     getPerson,

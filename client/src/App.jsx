@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { AuthProvider } from "./providers/AuthProvider";
+import { DemoBanner } from "./components/DemoBanner";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div className="app">
         <NavBar />
         <main className="main-content">
+          <DemoBanner />
           <Outlet />
         </main>
       </div>
