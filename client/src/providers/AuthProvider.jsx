@@ -12,23 +12,20 @@ export function AuthProvider({ children }) {
   });
   const [loading, setLoading] = useState(true);
 
-  const API_URL = import.meta.env.PROD
-    ? import.meta.env.BASE_URL
-    : "http://localhost:3000";
-
   const IS_PROD = import.meta.env.PROD;
+  const API_URL = IS_PROD ? import.meta.env.BASE_URL : "http://localhost:3000";
 
-  // 1) Initial load
   useEffect(() => {
     fetchAllData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function fetchAllData() {
     try {
       if (IS_PROD) {
-        // GitHub Pages: load one static file
+        // GitHub Pages: load a single static file
         const r = await fetch(`${import.meta.env.BASE_URL}db.json`);
-        if (!r.ok) throw new Error("💥 Error fetching db.json");
+        if (!r.ok) throw new Error("Error fetching db.json");
         const db = await r.json();
 
         setData({
@@ -39,6 +36,7 @@ export function AuthProvider({ children }) {
           resources: db.resources ?? [],
           values: db.values ?? [],
         });
+
         setLoading(false);
         return;
       }
@@ -68,7 +66,7 @@ export function AuthProvider({ children }) {
         !resourcesRes.ok ||
         !valuesRes.ok
       ) {
-        throw new Error("💥 Error fetching one or more collections");
+        throw new Error("Error fetching one or more collections");
       }
 
       const people = await peopleRes.json();
@@ -90,7 +88,7 @@ export function AuthProvider({ children }) {
 
   async function handleAddNew(collection, newItem) {
     if (IS_PROD) {
-      console.warn("Read-only mode on GitHub Pages: cannot add", collection);
+      console.warn("Read-only on GitHub Pages: cannot add", collection);
       return null;
     }
 
@@ -100,7 +98,7 @@ export function AuthProvider({ children }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newItem),
       });
-      if (!r.ok) throw new Error(`💥 Error adding to ${collection}`);
+      if (!r.ok) throw new Error(`Error adding to ${collection}`);
 
       const savedItem = await r.json();
 
@@ -118,7 +116,7 @@ export function AuthProvider({ children }) {
 
   async function handleUpdate(collection, itemToUpdate) {
     if (IS_PROD) {
-      console.warn("Read-only mode on GitHub Pages: cannot update", collection);
+      console.warn("Read-only on GitHub Pages: cannot update", collection);
       return null;
     }
 
@@ -128,7 +126,7 @@ export function AuthProvider({ children }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(itemToUpdate),
       });
-      if (!r.ok) throw new Error(`💥 Error updating ${collection}`);
+      if (!r.ok) throw new Error(`Error updating ${collection}`);
 
       const savedItem = await r.json();
 
@@ -148,7 +146,7 @@ export function AuthProvider({ children }) {
 
   // --- PUBLIC ACTIONS ---
 
-  // 1) ACTIVITIES
+  // ACTIVITIES
   const addActivity = async (formData) => {
     const newActivity = {
       ...formData,
@@ -179,20 +177,27 @@ export function AuthProvider({ children }) {
     await handleUpdate("activities", { id: activityId, status: newStatus });
   };
 
-  // 2) OTHER ENTITIES
-  const addPerson = async (personData) => await handleAddNew("people", personData);
-  const updatePerson = async (id, updates) => await handleUpdate("people", { id, ...updates });
+  // OTHER ENTITIES
+  const addPerson = async (personData) =>
+    await handleAddNew("people", personData);
+  const updatePerson = async (id, updates) =>
+    await handleUpdate("people", { id, ...updates });
 
-  const addCompany = async (companyData) => await handleAddNew("companies", companyData);
-  const updateCompany = async (id, updates) => await handleUpdate("companies", { id, ...updates });
+  const addCompany = async (companyData) =>
+    await handleAddNew("companies", companyData);
+  const updateCompany = async (id, updates) =>
+    await handleUpdate("companies", { id, ...updates });
 
-  const addDocument = async (docData) => await handleAddNew("documents", docData);
-  const updateDocument = async (id, updates) => await handleUpdate("documents", { id, ...updates });
+  const addDocument = async (docData) =>
+    await handleAddNew("documents", docData);
+  const updateDocument = async (id, updates) =>
+    await handleUpdate("documents", { id, ...updates });
 
   const addValue = async (valData) => await handleAddNew("values", valData);
-  const updateValue = async (id, updates) => await handleUpdate("values", { id, ...updates });
+  const updateValue = async (id, updates) =>
+    await handleUpdate("values", { id, ...updates });
 
-  // 3) RESOURCES
+  // RESOURCES
   const addResource = async (resData) => {
     const payload = {
       ...resData,
@@ -248,7 +253,7 @@ export function AuthProvider({ children }) {
     [data.activities],
   );
 
-  // --- DEMO MODE BANNER / SNAPSHOT ---
+  // --- DEMO MODE / SNAPSHOT ---
   const isDemo = IS_PROD;
 
   const downloadSnapshot = () => {
@@ -270,7 +275,7 @@ export function AuthProvider({ children }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `inlet-snapshot-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `db-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(a);
     a.click();
     a.remove();

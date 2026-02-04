@@ -9,23 +9,26 @@ export function DemoBanner() {
   return (
     <div className="demo-banner">
       <div className="demo-banner-left">
-        <div className="demo-banner-title">
+        <span className="demo-banner-icon">
           <Lock size={16} />
-          Demo Mode
-        </div>
-        <div className="demo-banner-subtitle">
-          Read-only GitHub Pages build. Download a snapshot anytime.
+        </span>
+
+        <div className="demo-banner-text">
+          <div className="demo-banner-title">Demo Mode (read-only)</div>
+          <div className="demo-banner-subtitle">
+            Changes won’t save on GitHub Pages. Download a snapshot to update
+            your db.json later.
+          </div>
         </div>
       </div>
 
       <button
         type="button"
-        onClick={downloadSnapshot}
         className="btn btn-secondary btn-with-icon demo-banner-btn"
-        title="Download a JSON snapshot of the current data"
+        onClick={downloadSnapshot}
       >
         <Download size={18} />
-        Download snapshot
+        Download db.json snapshot
       </button>
     </div>
   );
