@@ -5,10 +5,7 @@ import { useAuth } from "../hooks/useAuth";
 import { ActivityCard } from "../components/ActivityCard";
 import { QuickAddModal } from "../components/QuickAddModal";
 import { ActiveBanner } from "../components/ActiveBanner";
-import { DemoBanner } from "./components/DemoBanner";
-
-// inside render:
-<DemoBanner />;
+import { DemoBanner } from "../components/DemoBanner";
 
 const normalize = (s) => (s ?? "").toString().toLowerCase().trim();
 
@@ -17,10 +14,12 @@ export function ActivityPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [showQuickAdd, setShowQuickAdd] = useState(false);
 
+  // URL filters (shareable)
   const activityFilter = searchParams.get("type") || "all";
   const statusFilter = searchParams.get("status") || "all";
   const urlCompanyFilter = searchParams.get("company") || "all";
 
+  // Local UI filters
   const [search, setSearch] = useState("");
   const [companyFilter, setCompanyFilter] = useState(urlCompanyFilter);
 
@@ -38,6 +37,7 @@ export function ActivityPage() {
     setSearchParams(params);
   };
 
+  // Keep company in URL too (shareable)
   const setCompanyParam = (companyId) => {
     const params = new URLSearchParams(searchParams);
     if (!companyId || companyId === "all") params.delete("company");
@@ -51,31 +51,33 @@ export function ActivityPage() {
     const q = normalize(search);
     let filtered = [...(data.activities ?? [])];
 
+    // type/status from URL
     if (activityFilter !== "all")
       filtered = filtered.filter((a) => a.type === activityFilter);
 
     if (statusFilter !== "all")
       filtered = filtered.filter((a) => a.status === statusFilter);
 
+    // company from local+url
     if (companyFilter !== "all")
       filtered = filtered.filter((a) => a.companyId === companyFilter);
 
+    // text search (note/type/status/company name)
     if (q) {
       filtered = filtered.filter((a) => {
         const companyName = a.companyId
           ? (getCompany?.(a.companyId)?.name ?? "")
           : "";
 
-        const hay = `${a.note ?? ""} ${a.type ?? ""} ${
-          a.status ?? ""
-        } ${companyName}`.toLowerCase();
+        const hay =
+          `${a.note ?? ""} ${a.type ?? ""} ${a.status ?? ""} ${companyName}`.toLowerCase();
 
         return hay.includes(q);
       });
     }
 
+    // most recently touched/created
     filtered.sort((a, b) => getLatestTimestamp(b) - getLatestTimestamp(a));
-
     return filtered;
   }, [
     data.activities,
@@ -113,8 +115,12 @@ export function ActivityPage() {
         </button>
       </div>
 
+      {/* Demo/Read-only banner (only shows in PROD if you coded it that way) */}
+      <DemoBanner />
+
       <ActiveBanner />
 
+      {/* Search + dropdown + reset */}
       <div className="page-controls">
         <div className="page-controls-left">
           <div className="page-search">
@@ -132,7 +138,6 @@ export function ActivityPage() {
             onChange={(e) => setCompanyParam(e.target.value)}
           >
             <option value="all">Company: All</option>
-
             {(data.companies ?? [])
               .slice()
               .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""))
@@ -160,6 +165,7 @@ export function ActivityPage() {
         </div>
       </div>
 
+      {/* Type + status button filters */}
       <div className="filters">
         <div className="filter-group">
           {["all", "outreach", "application", "networking", "content"].map(
