@@ -6,7 +6,7 @@ import {
   FileText,
   Heart,
   Bookmark,
-  Layers, // I replaced the logo with a clean Lucide icon too
+  Layers,
 } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { HelpControl } from "../components/HelpControl";
@@ -14,7 +14,6 @@ import { HelpControl } from "../components/HelpControl";
 export function NavBar() {
   const { activeItems } = useAuth();
 
-  // We can pass the Icon Component directly in the array now!
   const navItems = [
     { path: "/", label: "Activity", Icon: ClipboardList },
     { path: "/companies", label: "Companies", Icon: Building2 },
@@ -28,7 +27,6 @@ export function NavBar() {
     <nav className="navbar">
       <div className="navbar-brand">
         <div className="navbar-logo">
-          {/* I replaced the complex SVG with a clean Lucide icon */}
           <Layers size={24} color="white" />
         </div>
         <span className="navbar-title">Inlet</span>
@@ -43,7 +41,6 @@ export function NavBar() {
               `navbar-link ${isActive ? "navbar-link-active" : ""}`
             }
           >
-            {/* Render the icon component directly */}
             <Icon size={18} />
             <span>{label}</span>
           </NavLink>
@@ -59,13 +56,16 @@ export function NavBar() {
         }}
       >
         {activeItems.length > 0 && (
-          <div className="navbar-badge">
+          <NavLink
+            to="/?status=active"
+            className="navbar-badge"
+            title="View Active (All Types)"
+          >
             <div className="navbar-badge-dot"></div>
             <span>{activeItems.length} active</span>
-          </div>
+          </NavLink>
         )}
 
-        {/* Added your Help Button here */}
         <HelpControl />
       </div>
     </nav>

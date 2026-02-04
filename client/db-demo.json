@@ -1,0 +1,617 @@
+{
+  "people": [
+    {
+      "id": "3e6329b3-5ec2-48f8-a6f6-7f8c675a3dd1",
+      "name": "James Gabe",
+      "role": "Talent Finder",
+      "companyId": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "link": "https://www.linkedin.com/in/jamesgabe/",
+      "notes": "Connected at industry event, interested in tech-savvy creatives",
+      "dateAdded": "2026-01-15T10:22:31.265Z"
+    },
+    {
+      "id": "6145ace9-685b-4d1b-9ade-39f989a7d5c8",
+      "name": "Marcus Chen",
+      "role": "Senior Engineering Manager",
+      "companyId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "link": "https://www.linkedin.com/in/marcuschen-eng/",
+      "notes": "Warm intro from bootcamp alum, prefers async communication",
+      "dateAdded": "2026-01-18T14:33:25.913Z"
+    },
+    {
+      "id": "17ce03e2-48c2-4af1-a05a-faea45a1d341",
+      "name": "Sarah Okonkwo",
+      "role": "Staff Software Engineer",
+      "companyId": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+      "link": "https://www.linkedin.com/in/sarahokonkwo/",
+      "notes": "Met at React meetup, offered to review portfolio",
+      "dateAdded": "2026-01-10T09:15:13.943Z"
+    },
+    {
+      "id": "6e23855e-09c6-4a73-950a-c9d92db48373",
+      "name": "David Reyes",
+      "role": "Technical Recruiter",
+      "companyId": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "link": "https://www.linkedin.com/in/davidreyes-recruit/",
+      "notes": "Reached out on LinkedIn, looking for full-stack devs",
+      "dateAdded": "2026-01-20T16:45:36.946Z"
+    },
+    {
+      "id": "7f34966a-1a2b-3c4d-5e6f-789012345678",
+      "name": "Emily Thornton",
+      "role": "VP of Engineering",
+      "companyId": "d4e5f6a7-b8c9-0123-defa-456789012345",
+      "link": "https://www.linkedin.com/in/emilythornton/",
+      "notes": "2nd degree connection through former colleague",
+      "dateAdded": "2026-01-08T11:22:44.123Z"
+    },
+    {
+      "id": "8a45077b-2b3c-4d5e-6f7a-890123456789",
+      "name": "Kevin Park",
+      "role": "Platform Engineer",
+      "companyId": "e5f6a7b8-c9d0-1234-efab-567890123456",
+      "link": "https://www.linkedin.com/in/kevinpark-platform/",
+      "notes": "Fellow bootcamp grad, now at Ridgeline",
+      "dateAdded": "2026-01-12T08:30:22.456Z"
+    },
+    {
+      "id": "9b56188c-3c4d-5e6f-7a8b-901234567890",
+      "name": "Amanda Foster",
+      "role": "Engineering Lead",
+      "companyId": "f6a7b8c9-d0e1-2345-fabc-678901234567",
+      "link": "https://www.linkedin.com/in/amandafoster-lead/",
+      "notes": "Responded to cold outreach, open to coffee chat",
+      "dateAdded": "2026-01-19T13:55:18.789Z"
+    },
+    {
+      "id": "ac67299d-4d5e-6f7a-8b9c-012345678901",
+      "name": "Tom Nguyen",
+      "role": "Senior Developer",
+      "companyId": "a7b8c9d0-e1f2-3456-abcd-789012345678",
+      "link": "https://www.linkedin.com/in/tomnguyen-dev/",
+      "notes": "Active on Twitter, engages with my tech posts",
+      "dateAdded": "2026-01-14T17:40:33.012Z"
+    },
+    {
+      "id": "bd78310e-5e6f-7a8b-9c0d-123456789012",
+      "name": "Rachel Kim",
+      "role": "Technical Program Manager",
+      "companyId": "b8c9d0e1-f2a3-4567-bcde-890123456789",
+      "link": "https://www.linkedin.com/in/rachelkim-tpm/",
+      "notes": "Hiring for her team, wants builders not talkers",
+      "dateAdded": "2026-01-21T10:12:55.345Z"
+    },
+    {
+      "id": "ce89421f-6f7a-8b9c-0d1e-234567890123",
+      "name": "Brian Walsh",
+      "role": "Director of Product Engineering",
+      "companyId": "c9d0e1f2-a3b4-5678-cdef-901234567890",
+      "link": "https://www.linkedin.com/in/brianwalsh-eng/",
+      "notes": "Former hedge fund tech, understands my background",
+      "dateAdded": "2026-01-16T15:28:41.678Z"
+    }
+  ],
+  "companies": [
+    {
+      "id": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "name": "Beautiful's Dream",
+      "tier": "reference",
+      "link": "https://www.youtube.com/@BeautifulsDream",
+      "notes": "Kids YouTube is a channel that creates fun, quirky kids' music and songs that mix genres (pop, punk, EDM, etc.) aimed at entertaining and teaching children"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Vanta",
+      "tier": "dream",
+      "link": "https://www.vanta.com/careers",
+      "notes": "Security compliance automation. Small eng teams, high ownership, series C stability with startup energy. Engineers ship to prod daily."
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+      "name": "Retool",
+      "tier": "dream",
+      "link": "https://retool.com/careers",
+      "notes": "Internal tools platform. Values builders who understand business problems. Flat hierarchy, direct access to founders."
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "name": "Gusto",
+      "tier": "researching",
+      "link": "https://gusto.com/about/careers",
+      "notes": "Payroll/HR for SMBs. Mature product, stable growth. Good WLB reputation but may be slower-paced."
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0123-defa-456789012345",
+      "name": "Plaid",
+      "tier": "researching",
+      "link": "https://plaid.com/careers/",
+      "notes": "Fintech infrastructure. Complex domain, good for finance background. Large eng org now, might have more process."
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1234-efab-567890123456",
+      "name": "Ridgeline",
+      "tier": "dream",
+      "link": "https://www.ridgelineapps.com/careers/",
+      "notes": "Investment management cloud. Founded by Workday co-founder. Deep finance domain, values craft, remote-friendly."
+    },
+    {
+      "id": "f6a7b8c9-d0e1-2345-fabc-678901234567",
+      "name": "Mercury",
+      "tier": "researching",
+      "link": "https://mercury.com/jobs",
+      "notes": "Banking for startups. Clean product, good design culture. Series C, still relatively small eng team."
+    },
+    {
+      "id": "a7b8c9d0-e1f2-3456-abcd-789012345678",
+      "name": "Linear",
+      "tier": "dream",
+      "link": "https://linear.app/careers",
+      "notes": "Issue tracking done right. Tiny team, extreme craft focus, fully remote. Very selective hiring."
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4567-bcde-890123456789",
+      "name": "Notion",
+      "tier": "meh",
+      "link": "https://www.notion.so/careers",
+      "notes": "Productivity tool. Big now, might be too corporate. Good brand but heard mixed things about eng culture."
+    },
+    {
+      "id": "c9d0e1f2-a3b4-5678-cdef-901234567890",
+      "name": "Ramp",
+      "tier": "researching",
+      "link": "https://ramp.com/careers",
+      "notes": "Corporate cards and spend management. Fast growth, high intensity. Finance background would resonate."
+    },
+    {
+      "id": "d0e1f2a3-b4c5-6789-defa-012345678901",
+      "name": "Webflow",
+      "tier": "meh",
+      "link": "https://webflow.com/careers",
+      "notes": "No-code web builder. Remote-first. Heard pace has slowed after layoffs. Worth monitoring."
+    },
+    {
+      "id": "e1f2a3b4-c5d6-7890-efab-123456789012",
+      "name": "Deel",
+      "tier": "blacklist",
+      "link": "https://www.deel.com/careers",
+      "notes": "Global payroll. Aggressive growth tactics, questionable culture reports. Pass unless desperate."
+    },
+    {
+      "id": "f2a3b4c5-d6e7-8901-fabc-234567890123",
+      "name": "Bolt",
+      "tier": "blacklist",
+      "link": "https://www.bolt.com/careers",
+      "notes": "Checkout company with messy leadership drama. CEO situation is a red flag. Hard pass."
+    },
+    {
+      "id": "a3b4c5d6-e7f8-9012-abcd-345678901234",
+      "name": "Stripe",
+      "tier": "reference",
+      "link": "https://stripe.com/jobs",
+      "notes": "Gold standard fintech. Use their docs as reference for API design. Hiring bar extremely high."
+    },
+    {
+      "id": "b4c5d6e7-f8a9-0123-bcde-456789012345",
+      "name": "Vercel",
+      "tier": "reference",
+      "link": "https://vercel.com/careers",
+      "notes": "Next.js creators. Great for understanding modern frontend deployment. Small team, selective."
+    }
+  ],
+  "activities": [
+    {
+      "id": "f644",
+      "type": "application",
+      "note": "Applied to Full Stack Engineer role via website",
+      "link": "https://boards.greenhouse.io/vanta/jobs/123456",
+      "companyId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "personId": "",
+      "status": "open",
+      "created": "2026-01-22T09:15:28.625Z",
+      "touches": []
+    },
+    {
+      "id": "f5e1",
+      "type": "networking",
+      "note": "Coffee chat with Marcus about Vanta eng culture",
+      "link": "",
+      "companyId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "personId": "6145ace9-685b-4d1b-9ade-39f989a7d5c8",
+      "status": "closed",
+      "created": "2026-01-20T14:30:34.387Z",
+      "touches": []
+    },
+    {
+      "id": "f352",
+      "type": "outreach",
+      "note": "Sent LinkedIn message to Sarah asking about Retool interview process",
+      "link": "https://www.linkedin.com/in/sarahokonkwo/",
+      "companyId": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+      "personId": "17ce03e2-48c2-4af1-a05a-faea45a1d341",
+      "status": "open",
+      "created": "2026-01-21T10:22:39.538Z",
+      "touches": []
+    },
+    {
+      "id": "8bf3",
+      "type": "interview",
+      "note": "Recruiter screen with David - went well, moving to technical",
+      "link": "",
+      "companyId": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "personId": "6e23855e-09c6-4a73-950a-c9d92db48373",
+      "status": "closed",
+      "created": "2026-01-19T16:00:23.389Z",
+      "touches": []
+    },
+    {
+      "id": "de72",
+      "type": "application",
+      "note": "Applied to Software Engineer II role",
+      "link": "https://jobs.lever.co/gusto/789012",
+      "companyId": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-17T11:45:08.005Z",
+      "touches": []
+    },
+    {
+      "id": "1acf",
+      "type": "research",
+      "note": "Researched Plaid tech stack and recent engineering blog posts",
+      "link": "https://plaid.com/blog/engineering/",
+      "companyId": "d4e5f6a7-b8c9-0123-defa-456789012345",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-18T08:30:47.151Z",
+      "touches": []
+    },
+    {
+      "id": "14aa",
+      "type": "networking",
+      "note": "Kevin intro'd me to his team lead, call scheduled for next week",
+      "link": "",
+      "companyId": "e5f6a7b8-c9d0-1234-efab-567890123456",
+      "personId": "8a45077b-2b3c-4d5e-6f7a-890123456789",
+      "status": "open",
+      "created": "2026-01-22T13:20:24.203Z",
+      "touches": []
+    },
+    {
+      "id": "a1b2",
+      "type": "outreach",
+      "note": "Cold emailed Amanda about Mercury's approach to internal tools",
+      "link": "",
+      "companyId": "f6a7b8c9-d0e1-2345-fabc-678901234567",
+      "personId": "9b56188c-3c4d-5e6f-7a8b-901234567890",
+      "status": "closed",
+      "created": "2026-01-15T09:15:33.456Z",
+      "touches": []
+    },
+    {
+      "id": "b2c3",
+      "type": "content",
+      "note": "Published blog post about React state management patterns",
+      "link": "https://dev.to/joshdicker/react-state-patterns",
+      "companyId": "",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-16T20:45:12.789Z",
+      "touches": []
+    },
+    {
+      "id": "c3d4",
+      "type": "interview",
+      "note": "Technical screen scheduled with Ramp - prep system design",
+      "link": "",
+      "companyId": "c9d0e1f2-a3b4-5678-cdef-901234567890",
+      "personId": "ce89421f-6f7a-8b9c-0d1e-234567890123",
+      "status": "open",
+      "created": "2026-01-22T15:30:55.012Z",
+      "touches": []
+    },
+    {
+      "id": "d4e5",
+      "type": "networking",
+      "note": "Brian offered to refer me internally if I apply",
+      "link": "",
+      "companyId": "c9d0e1f2-a3b4-5678-cdef-901234567890",
+      "personId": "ce89421f-6f7a-8b9c-0d1e-234567890123",
+      "status": "closed",
+      "created": "2026-01-14T12:00:41.345Z",
+      "touches": []
+    },
+    {
+      "id": "e5f6",
+      "type": "content",
+      "note": "Updated portfolio with Bookafella case study",
+      "link": "https://josdic1.github.io/demberry.com/",
+      "companyId": "",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-13T18:22:08.678Z",
+      "touches": []
+    },
+    {
+      "id": "f6a7",
+      "type": "research",
+      "note": "Read Linear's engineering principles doc - aligns with my values",
+      "link": "https://linear.app/method",
+      "companyId": "a7b8c9d0-e1f2-3456-abcd-789012345678",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-11T07:45:33.901Z",
+      "touches": []
+    },
+    {
+      "id": "a7b8",
+      "type": "outreach",
+      "note": "Commented on Tom's thread about Flask patterns, got a reply",
+      "link": "https://twitter.com/tomnguyen/status/123456789",
+      "companyId": "a7b8c9d0-e1f2-3456-abcd-789012345678",
+      "personId": "ac67299d-4d5e-6f7a-8b9c-012345678901",
+      "status": "closed",
+      "created": "2026-01-10T14:55:22.234Z",
+      "touches": []
+    },
+    {
+      "id": "b8c9",
+      "type": "content",
+      "note": "Made content for BD 'THRU THE ZOO'",
+      "link": "https://www.youtube.com/watch?v=h4tUlrFGLU4",
+      "companyId": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-22T23:34:24.203Z",
+      "touches": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "cf6bcc9d-49ad-47a5-b9c7-a5521b4d13cf",
+      "name": "Resume 2026",
+      "type": "Resume",
+      "link": "https://drive.google.com/file/d/1v8rUQu_-tw5v3d4tWmPkZe05g35urELb/view?usp=sharing"
+    },
+    {
+      "id": "91d2be4e-75db-434e-ab8f-475f2f67d9fd",
+      "name": "JOSH.DEV",
+      "type": "Portfolio",
+      "link": "https://josdic1.github.io/demberry.com/"
+    },
+    {
+      "id": "e3f60462-7186-4eef-bca1-83113791f547",
+      "name": "CheatSheet Full-Stack Live",
+      "type": "Portfolio",
+      "link": "https://cheatsheet-static.onrender.com/login"
+    },
+    {
+      "id": "47ced812-9c61-44ef-9495-1bff09291328",
+      "name": "Investor Pitch (ELI5)",
+      "type": "Promotion",
+      "link": "https://drive.google.com/file/d/1KxIAItJa6OceKWk0GNTrMVtpotBoXWGY/view?usp=sharing"
+    },
+    {
+      "id": "9c5ed2dc-107f-4746-b841-27f8d323e968",
+      "name": "Investor Pitch (Analytics)",
+      "type": "Promotion",
+      "link": "https://drive.google.com/file/d/1IiLagZXK0izGnTSIh01uHloDlrYzYcc_/view?usp=sharing"
+    },
+    {
+      "id": "a1b2c3d4-1111-2222-3333-444455556666",
+      "name": "Technical Writing Sample",
+      "type": "Writing",
+      "link": "https://docs.google.com/document/d/1ABC123DEF456GHI789/edit"
+    },
+    {
+      "id": "b2c3d4e5-2222-3333-4444-555566667777",
+      "name": "System Design Notes",
+      "type": "Reference",
+      "link": "https://notion.so/jdicker/system-design-prep"
+    },
+    {
+      "id": "c3d4e5f6-3333-4444-5555-666677778888",
+      "name": "Behavioral Interview Prep",
+      "type": "Reference",
+      "link": "https://docs.google.com/document/d/2XYZ789ABC123DEF456/edit"
+    },
+    {
+      "id": "d4e5f6a7-4444-5555-6666-777788889999",
+      "name": "Cover Letter Template",
+      "type": "Template",
+      "link": "https://docs.google.com/document/d/3LMN456OPQ789RST012/edit"
+    },
+    {
+      "id": "e5f6a7b8-5555-6666-7777-888899990000",
+      "name": "Salary Research",
+      "type": "Reference",
+      "link": "https://docs.google.com/spreadsheets/d/4UVW123XYZ456ABC789/edit"
+    }
+  ],
+  "resources": [
+    {
+      "id": "d8da711b-f528-4517-8192-a1781c9a606e",
+      "name": "Builtin.com",
+      "link": "https://builtin.com/",
+      "notes": "Tech-focused job and career platform where you can search tech and startup jobs, explore company profiles, and read industry news and career resources.",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "bce1a0b3-3361-4b4c-a187-e2752d37a6f8",
+      "name": "Levels.fyi",
+      "link": "https://www.levels.fyi/",
+      "notes": "Salary and leveling data across tech companies. Essential for negotiation prep.",
+      "lastEngaged": "2026-01-20"
+    },
+    {
+      "id": "f6b0a920-1993-4bf2-bf9e-1122a1b59ca2",
+      "name": "Glassdoor",
+      "link": "https://www.glassdoor.com/",
+      "notes": "Interview questions and company reviews. Take with grain of salt but useful for prep.",
+      "lastEngaged": "2026-01-18"
+    },
+    {
+      "id": "dde6ec73-d27a-4555-b761-88f37140af67",
+      "name": "Huntr",
+      "link": "https://huntr.co/track/profile/builder/basic-info",
+      "notes": "Simple tool that helps you organize your job hunt, track applications, quickly make custom resumes and cover letters, and auto-fill forms.",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "242e356e-dee7-4d2b-8e41-c4cb8f524ce8",
+      "name": "GitHub",
+      "link": "https://github.com/josdic1?tab=repositories",
+      "notes": "Keep my github updated and clean",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "5c7489f4-76e7-4778-b3df-9128e64cd7ce",
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/joshdicker/",
+      "notes": "My LinkedIn profile",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "e71bef5b-7c79-4f6d-b9e4-17cf2f944c88",
+      "name": "Neetcode",
+      "link": "https://neetcode.io/",
+      "notes": "Curated DSA problems with video explanations. Better than random Leetcode grinding.",
+      "lastEngaged": "2026-01-21"
+    },
+    {
+      "id": "a1b2c3d4-aaaa-bbbb-cccc-ddddeeee1111",
+      "name": "Wellfound (AngelList)",
+      "link": "https://wellfound.com/",
+      "notes": "Startup jobs with salary ranges shown upfront. Good for finding smaller companies.",
+      "lastEngaged": "2026-01-19"
+    },
+    {
+      "id": "b2c3d4e5-bbbb-cccc-dddd-eeee11112222",
+      "name": "Key Values",
+      "link": "https://www.keyvalues.com/",
+      "notes": "Filter companies by engineering culture values. Great for finding culture fit.",
+      "lastEngaged": "2026-01-17"
+    }
+  ],
+  "values": [
+    {
+      "id": "deef5964-6581-441f-9e70-87cdddbd620c",
+      "text": "Plain language over jargon",
+      "type": "good"
+    },
+    {
+      "id": "65ac2878-63d7-49d3-b53b-558f17dfe252",
+      "text": "Tools that last",
+      "type": "good"
+    },
+    {
+      "id": "44dbef33-c344-48cb-b85e-251d5d16c572",
+      "text": "Output over optics",
+      "type": "good"
+    },
+    {
+      "id": "3b3d4954-3944-4e42-8b33-6ffc11020f8e",
+      "text": "Direct, honest feedback",
+      "type": "good"
+    },
+    {
+      "id": "4e4c8738-7f83-4221-9d7c-ee8a840fb18e",
+      "text": "Meritocracy",
+      "type": "good"
+    },
+    {
+      "id": "20d6b038-d988-40ed-aeb3-c0c8349aae00",
+      "text": "Transparency",
+      "type": "good"
+    },
+    {
+      "id": "f663b0e5-f6b2-4e18-8039-e31cc9ed4e04",
+      "text": "Deep focus time",
+      "type": "good"
+    },
+    {
+      "id": "cfd65dda-37e6-45f9-b559-3f82552c1092",
+      "text": "Code that explains itself",
+      "type": "good"
+    },
+    {
+      "id": "5268e54c-a45d-48ec-bba0-ad61397b9497",
+      "text": "Leaders with real stake in the outcome",
+      "type": "good"
+    },
+    {
+      "id": "c33b8fd6-5e05-4fd0-bed4-eb1266ba75ff",
+      "text": "Room to question how things are done",
+      "type": "good"
+    },
+    {
+      "id": "7c09e3e5-72b3-47ad-bd3e-ad28f07cd0a3",
+      "text": "Interruptions as culture",
+      "type": "bad"
+    },
+    {
+      "id": "c8483179-d042-4040-9185-e60dba77f56f",
+      "text": "Managers without skin in the game",
+      "type": "bad"
+    },
+    {
+      "id": "65a50e2d-f0b1-4390-905f-d10751f15075",
+      "text": "Arbitrary quotas",
+      "type": "bad"
+    },
+    {
+      "id": "495e41e3-01f8-4238-9796-24386f3750ca",
+      "text": "Forced \"family\" framing unless earned",
+      "type": "bad"
+    },
+    {
+      "id": "cab54780-859f-49c1-bfaa-75fde5d323ea",
+      "text": "Management by hovering",
+      "type": "bad"
+    },
+    {
+      "id": "c669a5db-86cc-47f4-bdbc-c0d817426921",
+      "text": "Micromanagement",
+      "type": "bad"
+    },
+    {
+      "id": "4c1a6881-1dc7-4de4-98b9-9af423ea2a24",
+      "text": "Knowledge hoarding",
+      "type": "bad"
+    },
+    {
+      "id": "04834597-0dec-4d62-924b-4ac94e4f7fdc",
+      "text": "Perks instead of recognition",
+      "type": "bad"
+    },
+    {
+      "id": "8683c2cc-193f-4977-8853-a0df8ccf80fa",
+      "text": "Best idea wins",
+      "type": "good"
+    },
+    {
+      "id": "c922dc0b-eedb-4477-be2c-61bacebcde42",
+      "text": "\"That's how we've always done it\"",
+      "type": "bad"
+    },
+    {
+      "id": "485808e1-407c-46cb-a74a-24061671e228",
+      "text": "Intellectually curious",
+      "type": "good"
+    },
+    {
+      "id": "69f7d503-c143-4c45-8631-7a00ceaf26cd",
+      "text": "Work hard, decompress hard",
+      "type": "good"
+    },
+    {
+      "id": "d8cd2f3b-cc52-4455-9331-d94e0dbbcdbe",
+      "text": "High-trust environment",
+      "type": "good"
+    },
+    {
+      "id": "9e57105d-2c23-4902-bb8b-33a5efc02e1d",
+      "text": "People care about job titles more than impact",
+      "type": "bad"
+    }
+  ]
+}

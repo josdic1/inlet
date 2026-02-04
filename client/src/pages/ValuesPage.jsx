@@ -1,12 +1,18 @@
-import { useState } from "react";
-import { Plus, Check, X } from "lucide-react";
+// src/pages/ValuesPage.jsx
+import { useMemo, useState } from "react";
+import { Plus, Check, X, Search, RotateCcw } from "lucide-react";
 import { useAuth } from "../hooks/useAuth";
 import { ValueForm } from "../components/ValueForm";
+
+const normalize = (s) => (s ?? "").toString().toLowerCase().trim();
 
 export function ValuesPage() {
   const { data } = useAuth();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
+
+  const [search, setSearch] = useState("");
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const handleOpenAdd = (e) => {
     e.stopPropagation();
@@ -20,13 +26,32 @@ export function ValuesPage() {
     setIsFormOpen(true);
   };
 
-  const goodValues = data.values
-    .filter((v) => v.type === "good")
-    .sort((a, b) => a.text.localeCompare(b.text));
+  const filtered = useMemo(() => {
+    const q = normalize(search);
+    let out = data.values ?? [];
+    if (q) out = out.filter((v) => normalize(v.text).includes(q));
+    // refreshKey included so Refresh re-runs memo
+    return out;
+  }, [data.values, search, refreshKey]);
 
-  const badValues = data.values
-    .filter((v) => v.type === "bad")
-    .sort((a, b) => a.text.localeCompare(b.text));
+  const goodValues = useMemo(
+    () =>
+      filtered
+        .filter((v) => v.type === "good")
+        .sort((a, b) => a.text.localeCompare(b.text)),
+    [filtered],
+  );
+
+  const badValues = useMemo(
+    () =>
+      filtered
+        .filter((v) => v.type === "bad")
+        .sort((a, b) => a.text.localeCompare(b.text)),
+    [filtered],
+  );
+
+  const handleReset = () => setSearch("");
+  const handleRefresh = () => setRefreshKey((k) => k + 1);
 
   return (
     <div className="page">
@@ -44,6 +69,32 @@ export function ValuesPage() {
           <Plus size={20} />
           Add Value
         </button>
+      </div>
+
+      <div className="page-controls">
+        <div className="page-controls-left">
+          <div className="page-search">
+            <Search size={16} />
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search values…"
+            />
+          </div>
+        </div>
+        <div className="page-controls-right">
+          <button
+            onClick={handleReset}
+            className="btn btn-secondary btn-with-icon"
+          >
+            <RotateCcw size={18} />
+            Reset
+          </button>
+          <button onClick={handleRefresh} className="btn btn-secondary">
+            Refresh
+          </button>
+          <div className="page-count">{filtered.length}</div>
+        </div>
       </div>
 
       <div className="values-grid">
@@ -81,7 +132,7 @@ export function ValuesPage() {
               <div
                 key={value.id}
                 className="value-card value-card-bad"
-                onClick={() => handleOpenEdit(value)}
+                onClick={(e) => handleOpenEdit(e, value)}
                 style={{ cursor: "pointer" }}
                 title="Click to edit"
               >
@@ -91,6 +142,7 @@ export function ValuesPage() {
           </div>
         </div>
       </div>
+
       {isFormOpen && (
         <ValueForm
           initialData={editingItem}

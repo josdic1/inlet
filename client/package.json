@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 3000",
+    "server": "json-server --watch db-demo.json --port 3000",
     "pm2:start": "pm2 start npm --name inlet-db -- run server && pm2 start npm --name inlet-client -- run dev -- --port 5175",
     "pm2:stop": "pm2 stop all",
     "pm2:delete": "pm2 delete all",
@@ -31,6 +31,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "json-server": "^0.17.4",
     "vite": "^7.2.4"
   }
 }

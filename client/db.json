@@ -24,7 +24,7 @@
       "role": "Career Counselor",
       "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
       "link": "https://www.linkedin.com/in/ann-heilman-murphy/",
-      "notes": "Book meetings with Ann\nhttps://calendar.google.com/calendar/\nu/0/appointments/\nAcZssZ2X5_mTSvO4FiTJBIi-lGmjxeXPFEy54cGdhfI=",
+      "notes": "Book meetings with Ann",
       "dateAdded": "2026-01-22T20:01:13.943Z"
     },
     {
@@ -33,8 +33,17 @@
       "role": "Software Developer",
       "companyId": "",
       "link": "",
-      "notes": "Mik's friend 708-220-7614\\nNeed to get his linkedin and last name",
+      "notes": "Mik's friend Need to get his linkedin and last name",
       "dateAdded": "2026-01-22T20:05:36.946Z"
+    },
+    {
+      "id": "52262d75-b74a-4875-b896-6e1a685e7b8c",
+      "name": "Rob Hitt",
+      "role": "Fullstack Developer",
+      "companyId": "",
+      "link": "https://www.linkedin.com/in/robhitt/",
+      "notes": "Network",
+      "dateAdded": "2026-02-04T17:02:29.041Z"
     }
   ],
   "companies": [
@@ -48,9 +57,9 @@
     {
       "id": "21bb3dd4-bd17-4842-94fa-daf3a3ca3ff8",
       "name": "Palantir Technologies",
-      "tier": "researching",
+      "tier": "blacklist",
       "link": "https://www.palantir.com/",
-      "notes": "Decentralized pods, high ownership, Meritocracy Fellowship."
+      "notes": "High-intensity, collaborative, in-person culture with heavy stakeholder interaction; not optimized for async or maker-schedule deep work."
     },
     {
       "id": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
@@ -62,16 +71,16 @@
     {
       "id": "08e14d39-47a7-473d-a29f-00b0c4d823b7",
       "name": "Anduril Industries",
-      "tier": "researching",
-      "link": "https://www.anduril.com/",
-      "notes": "Defense tech; small, mission-driven teams like special ops ethos; high equity, merit-based, flat execution, founder-led ownership culture."
+      "tier": "meh",
+      "link": "https://www.anduril.com/careers/",
+      "notes": "High ownership and technical depth, but intense coordination and real-time alignment likely common."
     },
     {
       "id": "00e838d0-3a2a-4965-85e0-f7042e8456cc",
       "name": "SpaceX",
-      "tier": "researching",
+      "tier": "meh",
       "link": "https://www.spacex.com/careers",
-      "notes": "Lean engineering teams; extreme ownership, best ideas rise fast, high stakes/equity, minimal bureaucracy in core work."
+      "notes": "Lean engineering teams; high stakes/equity, minimal bureaucracy in core work."
     },
     {
       "id": "6d8682b0-b7f1-47ae-9feb-d63e5269494b",
@@ -79,6 +88,90 @@
       "tier": "researching",
       "link": "https://www.linkedin.com/company/thiel-capital-llc/",
       "notes": "Small, elite teams with real ownership, long-term merit focus, no corporate jargon/hierarchy."
+    },
+    {
+      "id": "12077f9c-1841-46b7-a16e-620161dd755d",
+      "name": "DraftKings",
+      "tier": "blacklist",
+      "link": "https://careers.draftkings.com/teams/business-development/",
+      "notes": "Not interested in gambling unless $$$"
+    },
+    {
+      "id": "6907d509-1816-4967-a066-605102833ea1",
+      "name": "GitLab",
+      "tier": "dream",
+      "link": "https://handbook.gitlab.com/handbook/",
+      "notes": "They have a \"no-meeting\" culture by default. Everything is an Issue or a Merge Request. If it isn't written down, it doesn't exist. Extreme autonomy. You are judged on your output (Merge Requests), not your \"Green\" Slack status."
+    },
+    {
+      "id": "c070c798-a95d-4067-8d6f-4bde82ea0942",
+      "name": "Doist",
+      "tier": "dream",
+      "link": "https://doist.com/careers",
+      "notes": "One of the strongest async-first companies; deep work and autonomy are explicitly embedded in how they operate."
+    },
+    {
+      "id": "f3a28f4f-0193-4f97-bdb9-19cb71c03c57",
+      "name": "Gusto",
+      "tier": "meh",
+      "link": "https://gusto.com/about/careers",
+      "notes": "Strong engineering culture and reasonable autonomy, but more structured, cross-functional collaboration and meetings typical of a larger fintech company may reduce pure async deep-work time."
+    },
+    {
+      "id": "382e0cc2-ad82-4811-9fe4-e6aa4534c6a8",
+      "name": "Basecamp",
+      "tier": "dream",
+      "link": "https://37signals.com/jobs",
+      "notes": "Maker-schedule friendly, low-meeting, documentation-heavy culture with strong emphasis on calm, focused work."
+    },
+    {
+      "id": "f9065ab0-9505-481a-93d4-24c337a5077a",
+      "name": "Automattic",
+      "tier": "meh",
+      "link": "https://automattic.com/work-with-us/",
+      "notes": "Highly async and distributed with strong autonomy, though org size can introduce some coordination overhead."
+    },
+    {
+      "id": "c0ec5f2b-ea49-4635-8706-3fc3c7d3a4ab",
+      "name": "SpaceX",
+      "tier": "blacklist",
+      "link": "https://www.spacex.com/careers/",
+      "notes": "Extremely execution-driven and meeting-intensive; not optimized for long independent research cycles before sync."
+    },
+    {
+      "id": "f8ea303e-ffd6-48c2-8674-f86d8d213756",
+      "name": "DuckDuckGo",
+      "tier": "meh",
+      "link": "https://duckduckgo.com/hiring",
+      "notes": "Remote-first and structured, though cross-functional collaboration can introduce more sync discussion."
+    },
+    {
+      "id": "71a8366e-3a56-479d-b2ae-7039efb4eae9",
+      "name": "Ghost",
+      "tier": "dream",
+      "link": "https://ghost.org/careers/",
+      "notes": "Small, focused team with strong ownership; likely strong research-then-discuss dynamic."
+    },
+    {
+      "id": "d2b9ce81-9565-48a4-a9d1-78546146fd82",
+      "name": "Basecamp",
+      "tier": "dream",
+      "link": "https://37signals.com/jobs",
+      "notes": "Optimized for calm, independent work and written proposals first; discussions are intentional, not constant."
+    },
+    {
+      "id": "87dee0dd-6746-4002-babe-6e48279b3022",
+      "name": "Doist",
+      "tier": "dream",
+      "link": "https://doist.com/careers",
+      "notes": "Strong async and maker-time respect; discussion exists but is deliberate and structured rather than spontaneous."
+    },
+    {
+      "id": "711166c1-70fa-4e08-87a3-873167bca004",
+      "name": "ConvertKit",
+      "tier": "dream",
+      "link": "https://kit.com/careers",
+      "notes": "Remote and documentation-driven; strong respect for maker schedule with structured debate."
     }
   ],
   "activities": [
@@ -124,6 +217,94 @@
       "personId": "",
       "status": "closed",
       "created": "2026-01-22T21:39:23.389Z",
+      "touches": []
+    },
+    {
+      "id": "de72",
+      "type": "networking",
+      "note": "Asked Isaac to review my live full-stack CheatSheet",
+      "link": "https://cheatsheet-static.onrender.com/login",
+      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-22T22:22:08.005Z",
+      "touches": []
+    },
+    {
+      "id": "1acf",
+      "type": "outreach",
+      "note": "Asked Isaac to review my JOSH.DEV",
+      "link": "https://josdic1.github.io/demberry.com/",
+      "companyId": "f4abaf31-5f0d-4636-9a35-c9ab7f7cf395",
+      "personId": "",
+      "status": "open",
+      "created": "2026-01-22T22:22:47.151Z",
+      "touches": []
+    },
+    {
+      "id": "14aa",
+      "type": "content",
+      "note": "Made content for BD 'THRU THE ZOO'",
+      "link": "https://www.youtube.com/watch?v=h4tUlrFGLU4",
+      "companyId": "01cfcea6-c22a-494c-988a-fa9e85ee9608",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-01-22T23:34:24.203Z",
+      "touches": []
+    },
+    {
+      "id": "32a8",
+      "type": "application",
+      "note": "Researched and potentially appliying even though might not be great fit",
+      "link": "https://huntr.co/job-post/6981316e4b5c32004a0c05e4",
+      "companyId": "f3a28f4f-0193-4f97-bdb9-19cb71c03c57",
+      "personId": "",
+      "status": "active",
+      "created": "2026-02-04T17:08:56.001Z",
+      "touches": []
+    },
+    {
+      "id": "3298",
+      "type": "networking",
+      "note": "Sent my investor plan to Curtis to review",
+      "link": "",
+      "companyId": "",
+      "personId": "",
+      "status": "active",
+      "created": "2026-02-04T17:09:23.784Z",
+      "touches": []
+    },
+    {
+      "id": "1a6b",
+      "type": "networking",
+      "note": "Sent portfolio and investor letter to Archin",
+      "link": "",
+      "companyId": "",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-02-04T17:11:06.662Z",
+      "touches": []
+    },
+    {
+      "id": "309f",
+      "type": "networking",
+      "note": "Sent portfolio and investor letter to in-laws",
+      "link": "",
+      "companyId": "",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-02-04T17:11:41.634Z",
+      "touches": []
+    },
+    {
+      "id": "e9d4",
+      "type": "networking",
+      "note": "Sent portfolio and investor letter to Billy Glaab ",
+      "link": "",
+      "companyId": "",
+      "personId": "",
+      "status": "closed",
+      "created": "2026-02-04T17:12:10.311Z",
       "touches": []
     }
   ],
@@ -249,6 +430,27 @@
       "link": "https://www.linkedin.com/in/joshdicker/",
       "notes": "My LinkedIn profile",
       "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "e71bef5b-7c79-4f6d-b9e4-17cf2f944c88",
+      "name": "Ann Meeting",
+      "link": "https://calendar.google.com/calendar/u/0/appointments/AcZssZ2X5_mTSvO4FiTJBIi-lGmjxeXPFEy54cGdhfI=",
+      "notes": "Career counseling meeting page",
+      "lastEngaged": "2026-01-22"
+    },
+    {
+      "id": "86f24a78-f482-4715-abe5-a6a7c237e028",
+      "name": "We Work Remotely",
+      "link": "https://weworkremotely.com/",
+      "notes": "World's largest remote work community",
+      "lastEngaged": "2026-02-04"
+    },
+    {
+      "id": "da17c597-b8e3-4237-9415-a3893853125f",
+      "name": "Remote OK",
+      "link": "https://remoteok.com/",
+      "notes": "Job platform",
+      "lastEngaged": "2026-02-04"
     }
   ],
   "values": [
@@ -360,6 +562,66 @@
     {
       "id": "69f7d503-c143-4c45-8631-7a00ceaf26cd",
       "text": "Work hard, decompress hard",
+      "type": "good"
+    },
+    {
+      "id": "d8cd2f3b-cc52-4455-9331-d94e0dbbcdbe",
+      "text": "High-trust environment",
+      "type": "good"
+    },
+    {
+      "id": "9e57105d-2c23-4902-bb8b-33a5efc02e1d",
+      "text": "People care about job titles more than impact",
+      "type": "bad"
+    },
+    {
+      "id": "cda6e2cd-3155-45a3-98cf-c4d80b659882",
+      "text": "Deep Work & Maker’s Schedule",
+      "type": "good"
+    },
+    {
+      "id": "f5fcf2c1-0a5d-4ab8-8423-931752b738d7",
+      "text": "Asynchronous Communication",
+      "type": "good"
+    },
+    {
+      "id": "b37aca49-da0d-43cd-a408-cae260344dcc",
+      "text": "High Autonomy",
+      "type": "good"
+    },
+    {
+      "id": "d779b24b-b028-4952-b2ec-861b79948673",
+      "text": "Low-Meeting / Documentation-First",
+      "type": "good"
+    },
+    {
+      "id": "67161802-7521-4f1b-a7ec-efe6b1b5ff78",
+      "text": "Synchronous-First",
+      "type": "bad"
+    },
+    {
+      "id": "d73f5432-2b29-451f-ad0a-8f5f38cb45ea",
+      "text": "High-Touch / High-Collaboration",
+      "type": "bad"
+    },
+    {
+      "id": "0f2e8c75-f9de-4f00-bc28-e2d91e6fcaf3",
+      "text": "Agile Micromanagement",
+      "type": "bad"
+    },
+    {
+      "id": "907d0443-37cf-4831-89c4-122616d282ab",
+      "text": "Open Office / Hot-Desking",
+      "type": "good"
+    },
+    {
+      "id": "dc3a24dc-a1cf-43fe-8ddd-3509f2aa35fe",
+      "text": "Urgency Culture",
+      "type": "bad"
+    },
+    {
+      "id": "61e3f183-60ab-4d50-a7f2-b978cbe0d159",
+      "text": "Deep prep & Sharp discussion",
       "type": "good"
     }
   ]
