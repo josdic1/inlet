@@ -1,11 +1,8 @@
 #!/bin/bash
+cd /Users/joshdicker/Desktop/CODE/_portfolio/inlet
 
-cd "$(dirname "$0")"
+cd client && npm run dev -- --port 5175 &
 
-echo "Starting Vite on port 5175..."
+osascript -e 'tell application "Terminal" to set miniaturized of front window to true'
 
-npm run dev -- --port 5175 &
-
-sleep 2
-
-exit
+wait
